@@ -1,5 +1,5 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:book_flight_app/features/home_screen/widgets/home_screen_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedTab = 0;
   List pages = [
-    Container(),
+    const HomeScreenBody(),
     Container(),
     Container(),
     Container(),
