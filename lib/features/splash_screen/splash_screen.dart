@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/generic_loader.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
