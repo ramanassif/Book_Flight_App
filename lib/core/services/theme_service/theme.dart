@@ -1,10 +1,11 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:flutter/material.dart';
 
-class Themes {
+class Themes with ChangeNotifier {
   static final lightTheme = ThemeData(
     primaryColor: kPrimaryColor,
     brightness: Brightness.light,
+    iconTheme: const IconThemeData(color: kDarkColor),
     fontFamily: 'Inter',
   );
   static final darkTheme = ThemeData(

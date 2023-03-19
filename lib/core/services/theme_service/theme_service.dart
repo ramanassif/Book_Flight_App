@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:get/get.dart';
 
-class ThemeServices {
-  final GetStorage _box = GetStorage();
-  final _key = 'isDarkMode';
+class ThemeServices with ChangeNotifier {
+  ThemeMode _mode;
 
-  _saveThemeToBox(bool isDarkMode) {
-    _box.write(_key, isDarkMode);
-  }
+  ThemeMode get mode => _mode;
 
-  bool _loadThemeFromBox() {
-    return _box.read<bool>(_key) ?? false;
-  }
+  ThemeServices({ThemeMode mode = ThemeMode.light}) : _mode = mode;
 
-  ThemeMode get theme => _loadThemeFromBox() ? ThemeMode.dark : ThemeMode.light;
-
-  void switchTheme() {
-    Get.changeThemeMode(_loadThemeFromBox() ? ThemeMode.light : ThemeMode.dark);
-    _saveThemeToBox(!_loadThemeFromBox());
+  void toggleMode() {
+    _mode = _mode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
   }
 }
