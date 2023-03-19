@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/generic_loader.dart';
+import 'package:book_flight_app/features/home_screen/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Center(
                     child: Column(
                       children: [
-                        Image.asset('assets/app_logo.png'),
+                        Image.asset('assets/images/app_logo.png'),
                         const SizedBox(height: 20,),
                         const Text(
                           'Book Flight',
@@ -62,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 4),
-      () => const Scaffold(),
+      () => Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomeScreen(),),),
     );
   }
 }

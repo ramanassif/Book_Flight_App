@@ -5,9 +5,11 @@ class Themes {
   static final lightTheme = ThemeData(
     primaryColor: kPrimaryColor,
     brightness: Brightness.light,
+    fontFamily: 'Inter',
   );
   static final darkTheme = ThemeData(
     primaryColor: kPrimaryColor,
     brightness: Brightness.dark,
+    fontFamily: 'Inter',
   );
 }
