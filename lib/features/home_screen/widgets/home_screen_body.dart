@@ -1,6 +1,7 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:book_flight_app/features/home_screen/widgets/flight_selection_widget.dart';
+import 'package:book_flight_app/features/home_screen/widgets/offer_section.dart';
 import 'package:book_flight_app/features/home_screen/widgets/way_selection_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,11 +36,11 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             },
             child: Icon(
               Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                  ?  Icons.wb_sunny_outlined
-                  : Icons.nightlight_round_outlined ,
+                  ? Icons.wb_sunny_outlined
+                  : Icons.nightlight_round_outlined,
               color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
                   ? kLightColor
-                  : kDarkColor ,
+                  : kDarkColor,
             ),
           ),
         ),
@@ -54,7 +55,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               fontSize: 20,
               color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
                   ? kLightColor
-                  : kDarkColor ,
+                  : kDarkColor,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -73,7 +74,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 color:
                     Provider.of<ThemeServices>(context).mode == ThemeMode.dark
                         ? kLightColor
-                        : kDarkColor ,
+                        : kDarkColor,
               ),
             ),
           ),
@@ -82,7 +83,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
       body: Container(
         color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
             ? kDarkBackgroundColor
-            : kLightBackgroundColor ,
+            : kLightBackgroundColor,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
@@ -102,9 +103,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                   color:
                       Provider.of<ThemeServices>(context).mode == ThemeMode.dark
                           ? Colors.grey
-                          : kContainerBorderColor ,
+                          : kContainerBorderColor,
                 ),
               ),
+              const OfferSection(),
             ],
           ),
         ),
@@ -112,3 +114,4 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     );
   }
 }
+
