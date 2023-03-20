@@ -3,6 +3,7 @@ import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:book_flight_app/features/home_screen/widgets/flight_selection_widget.dart';
 import 'package:book_flight_app/features/home_screen/widgets/offer_section.dart';
 import 'package:book_flight_app/features/home_screen/widgets/way_selection_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -50,7 +51,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             bottom: 12.0,
           ),
           child: Text(
-            'Book Flight',
+            'Book_Flight'.tr().toString(),
             style: TextStyle(
               fontSize: 20,
               color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark

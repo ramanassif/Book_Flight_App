@@ -1,5 +1,6 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -71,7 +72,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                           });
                         },
                         child: Text(
-                          'One Way',
+                          'One_way'.tr().toString(),
                           style: TextStyle(
                             color: isOneSelected
                                 ? kLightColor
@@ -114,7 +115,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                           });
                         },
                         child: Text(
-                          'Round',
+                          'Round'.tr().toString(),
                           style: TextStyle(
                             color: isTwoSelected
                                 ? kLightColor
@@ -157,7 +158,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                           });
                         },
                         child: Text(
-                          'Multicity',
+                          'Multicity'.tr().toString(),
                           style: TextStyle(
                             color: isThreeSelected
                                 ? kLightColor

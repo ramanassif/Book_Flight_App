@@ -1,3 +1,12 @@
 {
-  "Book_Flight": "Book Flight"
+  "Book_Flight": "Book Flight",
+  "Home": "Home",
+  "Booking": "Booking",
+  "Offer": "Offer",
+  "Inbox": "Inbox",
+  "Profile": "Profile",
+  "Search": "Search",
+  "One_way": "One Way",
+  "Round": "Round",
+  "Multicity": "Multicity"
 }

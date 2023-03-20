@@ -1,5 +1,6 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,7 +48,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
           child: Column(
             children: [
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
@@ -72,60 +73,62 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                     left: 16,
                                     right: 16,
                                   ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        'assets/icons/flight_from.svg',
-                                        color: kGreyColor,
-                                      ),
-                                      const SizedBox(
-                                        width: 12,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: const [
-                                              Text(
-                                                'Delhi',
-                                                style: TextStyle(
-                                                  color: kDarkColor,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600,
+                                  child: Center(
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/icons/flight_from.svg',
+                                          color: kGreyColor,
+                                        ),
+                                        const SizedBox(
+                                          width: 12,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: const [
+                                                Text(
+                                                  'Delhi',
+                                                  style: TextStyle(
+                                                    color: kDarkColor,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: 8,
-                                              ),
-                                              Text(
-                                                'DEL',
-                                                style: TextStyle(
-                                                  color: kGreyColor,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
+                                                SizedBox(
+                                                  width: 8,
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
-                                          const Text(
-                                            'Indira Gandhi International Airport',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w400,
+                                                Text(
+                                                  'DEL',
+                                                  style: TextStyle(
+                                                    color: kGreyColor,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                            const SizedBox(
+                                              height: 4,
+                                            ),
+                                            const Text(
+                                              'Indira Gandhi International Airport',
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -151,7 +154,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                           ),
                         ),
                         const SizedBox(
-                          height: 16,
+                          height: 12,
                         ),
                         Expanded(
                           flex: 1,
@@ -171,60 +174,62 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                     left: 16,
                                     right: 16,
                                   ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        'assets/icons/flight_to.svg',
-                                        color: kGreyColor,
-                                      ),
-                                      const SizedBox(
-                                        width: 12,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: const [
-                                              Text(
-                                                'Kolkata',
-                                                style: TextStyle(
-                                                  color: kDarkColor,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600,
+                                  child: Center(
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/icons/flight_to.svg',
+                                          color: kGreyColor,
+                                        ),
+                                        const SizedBox(
+                                          width: 12,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: const [
+                                                Text(
+                                                  'Kolkata',
+                                                  style: TextStyle(
+                                                    color: kDarkColor,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: 8,
-                                              ),
-                                              Text(
-                                                'CCU',
-                                                style: TextStyle(
-                                                  color: kGreyColor,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
+                                                SizedBox(
+                                                  width: 8,
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
-                                          const Text(
-                                            'Subhash Chandra International Airport',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w400,
+                                                Text(
+                                                  'CCU',
+                                                  style: TextStyle(
+                                                    color: kGreyColor,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                            const SizedBox(
+                                              height: 4,
+                                            ),
+                                            const Text(
+                                              'Subhash Chandra International Airport',
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -253,7 +258,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                     ),
                     Positioned(
                       left: MediaQuery.of(context).size.width / 1.5,
-                      bottom: MediaQuery.of(context).size.height / 15,
+                      bottom: MediaQuery.of(context).size.height / 19,
                       child: Container(
                         width: 50,
                         height: 50,
@@ -536,10 +541,10 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: kPrimaryColor),
-                  child: const Center(
+                  child: Center(
                       child: Text(
-                    'Search',
-                    style: TextStyle(
+                    'Search'.tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
