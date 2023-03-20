@@ -66,6 +66,7 @@ class _CardOfferItemState extends State<CardOfferItem> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
+                        color: kDarkColor,
                       ),
                     ),
                   ],

@@ -114,4 +114,3 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     );
   }
 }
-

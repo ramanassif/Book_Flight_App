@@ -1,6 +1,8 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:book_flight_app/features/home_screen/widgets/offer_list.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OfferSection extends StatefulWidget {
   const OfferSection({Key? key}) : super(key: key);
@@ -21,17 +23,20 @@ class _OfferSectionState extends State<OfferSection> {
             bottom: 12.0,
           ),
           child: Row(
-            children: const [
+            children: [
               Text(
                 'Hot offer',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
-                  color: kDarkColor,
+                  color:
+                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+                          ? kLightColor
+                          : kDarkColor,
                 ),
               ),
-              Spacer(),
-              Text(
+              const Spacer(),
+              const Text(
                 'See all',
                 style: TextStyle(
                   fontSize: 14,
