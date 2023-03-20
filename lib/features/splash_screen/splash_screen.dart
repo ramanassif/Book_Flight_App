@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/generic_loader.dart';
 import 'package:book_flight_app/features/home_screen/screens/home_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -31,16 +31,18 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Column(
                       children: [
                         Image.asset('assets/images/app_logo.png'),
-                        const SizedBox(height: 20,),
-                        const Text(
-                          'Book Flight',
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Book_Flight'.tr().toString(),
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 36,
                             color: Colors.white,
                             fontWeight: FontWeight.w800,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -63,7 +65,12 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 4),
-      () => Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomeScreen(),),),
+      () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ),
+      ),
     );
   }
 }
