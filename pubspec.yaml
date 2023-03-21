@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.0.1
   provider:
   easy_localization: ^3.0.1
+  desktop_window: ^0.4.0
 
 dev_dependencies:
   flutter_test:

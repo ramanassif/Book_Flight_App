@@ -24,7 +24,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
         bottom: 24.0,
       ),
       child: Container(
-        height: MediaQuery.of(context).size.height / 1.6,
+        height: MediaQuery.of(context).size.height > 700
+            ? MediaQuery.of(context).size.height / 1.6
+            : MediaQuery.of(context).size.height / 1.3, //windows
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -42,8 +44,8 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
           padding: const EdgeInsets.only(
             left: 16.0,
             right: 16.0,
-            top: 16.0,
-            bottom: 16.0,
+            top: 22.0,
+            bottom: 20.0,
           ),
           child: Column(
             children: [
@@ -258,7 +260,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                     ),
                     Positioned(
                       left: MediaQuery.of(context).size.width / 1.5,
-                      bottom: MediaQuery.of(context).size.height / 19,
+                      bottom: 45,
                       child: Container(
                         width: 50,
                         height: 50,
