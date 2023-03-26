@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/generic_loader.dart';
-import 'package:book_flight_app/features/home_screen/screens/home_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -65,11 +64,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 4),
-      () => Navigator.pushReplacement(
+      () => Navigator.pushNamed(
         context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
+        'homeScreen',
       ),
     );
   }

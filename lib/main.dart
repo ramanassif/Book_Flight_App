@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:book_flight_app/core/services/routing/routing_service.dart';
 import 'package:book_flight_app/core/services/theme_service/theme.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
-import 'package:book_flight_app/features/splash_screen/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +56,9 @@ class MyApp extends StatelessWidget {
           theme: Themes.lightTheme,
           darkTheme: Themes.darkTheme,
           themeMode: model.mode,
-          home: const SplashScreen(),
+          //home: const SplashScreen(),
+          onGenerateRoute: AppRoute.generateRoute,
+          initialRoute: 'splashScreen',
         ),
       ),
     );
