@@ -24,6 +24,8 @@ class CardOfferItem extends StatefulWidget {
 }
 
 class _CardOfferItemState extends State<CardOfferItem> {
+  String? currentLanguage;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,9 +43,19 @@ class _CardOfferItemState extends State<CardOfferItem> {
               flex: 1,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    bottomLeft: Radius.circular(8),
+                  borderRadius: BorderRadius.only(
+                    topLeft: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(8)
+                        : const Radius.circular(0),
+                    bottomLeft: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(8)
+                        : const Radius.circular(0),
+                    topRight: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(0)
+                        : const Radius.circular(8),
+                    bottomRight: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(0)
+                        : const Radius.circular(8),
                   ),
                   color: widget.color,
                 ),
@@ -64,6 +76,7 @@ class _CardOfferItemState extends State<CardOfferItem> {
                       widget.offer,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
+                        height: 0,
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                         color: kDarkColor,
@@ -84,18 +97,18 @@ class _CardOfferItemState extends State<CardOfferItem> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: 16.0,
-                    right: 16.0,
-                    top: 18.0,
-                    bottom: 18.0,
-                  ),
+                  padding: EdgeInsets.only(
+                      left: 16.0,
+                      right: (currentLanguage == 'en_EN') ? 16.0 : 12.0,
+                      top: 16.0,
+                      bottom: 16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         widget.description,
                         style: const TextStyle(
+                          height: 0,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: kDarkColor,
@@ -107,7 +120,8 @@ class _CardOfferItemState extends State<CardOfferItem> {
                       const Text(
                         'Lorem ipsum dolor sit am etet adip',
                         style: TextStyle(
-                          fontSize: 14,
+                          height: 0,
+                          fontSize: 12,
                           fontWeight: FontWeight.w300,
                           color: Colors.grey,
                         ),
@@ -121,5 +135,13 @@ class _CardOfferItemState extends State<CardOfferItem> {
         ),
       ),
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Locale myLocale = Localizations.localeOf(context);
+    currentLanguage = myLocale.toString();
+    debugPrint('$myLocale'.toString());
   }
 }

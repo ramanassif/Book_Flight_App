@@ -19,7 +19,7 @@ class HomeScreenBody extends StatefulWidget {
 class _HomeScreenBodyState extends State<HomeScreenBody> {
   String? currentLanguage;
   bool isSwitchedTheme = false;
-  bool isSwitchedLanguage = false;
+  bool? isSwitchedLanguage;
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +36,17 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Choose Your Theme'),
+                Text(
+                  'Choose_your_theme'.tr().toString(),
+                ),
                 const SizedBox(
                   height: 16,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('Light Mode'),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Icon(
-                      Icons.wb_sunny_outlined,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
+                    Text(
+                      'Light_Mode'.tr().toString(),
                     ),
                     Transform.scale(
                       scale: 0.8,
@@ -76,50 +71,57 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                         },
                       ),
                     ),
-                    const Text('Dark Mode'),
+                    Text(
+                      'Dark_Mode'.tr().toString(),
+                    ),
                     const SizedBox(
                       width: 8,
-                    ),
-                    Icon(
-                      Icons.nightlight_round_outlined,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
                     ),
                   ],
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                const Text('Choose App Language'),
+                Text(
+                  'Choose_app_language'.tr().toString(),
+                ),
                 const SizedBox(
                   height: 16,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('English'),
+                    Text(
+                      'English'.tr().toString(),
+                    ),
                     Transform.scale(
                       scale: 0.8,
                       child: CupertinoSwitch(
                         activeColor: kPrimaryColor,
                         dragStartBehavior: DragStartBehavior.start,
-                        value: isSwitchedLanguage,
+                        value: isSwitchedLanguage!,
                         onChanged: (value) {
                           if (isSwitchedLanguage == false) {
                             setState(() {
                               isSwitchedLanguage = true;
+                              Navigator.pop(context);
+                              context.setLocale(const Locale('ar', 'AR'));
+                              currentLanguage = 'ar_AR';
                             });
                           } else {
                             setState(() {
                               isSwitchedLanguage = false;
+                              Navigator.pop(context);
+                              context.setLocale(const Locale('en', 'EN'));
+                              currentLanguage = 'en_EN';
                             });
                           }
                         },
                       ),
                     ),
-                    const Text('Arabic'),
+                    Text(
+                      'Arabic'.tr().toString(),
+                    ),
                   ],
                 ),
               ],
@@ -135,7 +137,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           elevation: 0,
           title: Padding(
             padding: const EdgeInsets.only(
-              top: 24.0,
+              top: 30,
               bottom: 12.0,
             ),
             child: Text(
@@ -157,9 +159,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                   Scaffold.of(context).openEndDrawer();
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                    right: 24.0,
-                    bottom: 22,
+                  padding: EdgeInsets.only(
+                    right: (currentLanguage == 'en_EN') ? 24.0 : 0,
+                    left: (currentLanguage == 'ar_AR') ? 24.0 : 0,
+                    bottom: 12,
                     top: 24.0,
                   ),
                   child: Icon(
@@ -213,6 +216,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   void didChangeDependencies() {
     Locale myLocale = Localizations.localeOf(context);
     currentLanguage = myLocale.toString();
+    isSwitchedLanguage = (currentLanguage == 'en_EN') ? false : true;
     debugPrint('$myLocale'.toString());
     debugPrint(currentLanguage);
     super.didChangeDependencies();

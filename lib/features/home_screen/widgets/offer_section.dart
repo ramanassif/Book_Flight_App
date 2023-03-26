@@ -1,6 +1,7 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:book_flight_app/features/home_screen/widgets/offer_list.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,7 @@ class OfferSection extends StatefulWidget {
 }
 
 class _OfferSectionState extends State<OfferSection> {
+  String? currentLanguage;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +27,7 @@ class _OfferSectionState extends State<OfferSection> {
           child: Row(
             children: [
               Text(
-                'Hot offer',
+                'Hot_Offer'.tr().toString(),
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -36,9 +38,9 @@ class _OfferSectionState extends State<OfferSection> {
                 ),
               ),
               const Spacer(),
-              const Text(
-                'See all',
-                style: TextStyle(
+              Text(
+                'See_All'.tr().toString(),
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   color: kPrimaryColor,
@@ -50,5 +52,13 @@ class _OfferSectionState extends State<OfferSection> {
         const OfferList(),
       ],
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Locale myLocale = Localizations.localeOf(context);
+    currentLanguage = myLocale.toString();
+    debugPrint('$myLocale'.toString());
   }
 }

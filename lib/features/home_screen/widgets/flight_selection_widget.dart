@@ -1,6 +1,6 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,6 +15,8 @@ class FlightSelectionWidget extends StatefulWidget {
 }
 
 class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
+  String? currentLanguage;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -135,16 +137,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                 ),
                               ),
                               Positioned(
-                                left: 15,
+                                left: (currentLanguage == 'en_EN')
+                                    ? 15
+                                    : MediaQuery.of(context).size.width * 0.74,
                                 top: -10,
                                 child: Container(
                                   color: Colors.white,
-                                  width: 40,
+                                  width: (currentLanguage == 'en_EN') ? 40 : 30,
                                   height: 20,
-                                  child: const Center(
+                                  child: Center(
                                     child: Text(
-                                      'From',
-                                      style: TextStyle(
+                                      'From'.tr().toString(),
+                                      style: const TextStyle(
                                         fontSize: 12,
                                         color: kGreyColor,
                                       ),
@@ -236,16 +240,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                 ),
                               ),
                               Positioned(
-                                left: 15,
+                                left: (currentLanguage == 'en_EN')
+                                    ? 15
+                                    : MediaQuery.of(context).size.width * 0.74,
                                 top: -10,
                                 child: Container(
                                   color: Colors.white,
                                   width: 25,
                                   height: 20,
-                                  child: const Center(
+                                  child: Center(
                                     child: Text(
-                                      'To',
-                                      style: TextStyle(
+                                      'To'.tr().toString(),
+                                      style: const TextStyle(
                                         fontSize: 12,
                                         color: kGreyColor,
                                       ),
@@ -259,7 +265,12 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                       ],
                     ),
                     Positioned(
-                      left: MediaQuery.of(context).size.width / 1.5,
+                      left: (currentLanguage == 'en_EN')
+                          ? MediaQuery.of(context).size.width / 1.5
+                          : 20,
+                      right: (currentLanguage == 'ar_AR')
+                          ? MediaQuery.of(context).size.width / 1.5
+                          : 20,
                       bottom: 45,
                       child: Container(
                         width: 50,
@@ -335,17 +346,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                             ),
                           ),
                           Positioned(
-                            left: 15,
+                            left: (currentLanguage == 'en_EN') ? 15 : 75,
+                            right: (currentLanguage == 'en_EN') ? 75 : 15,
                             top: -8,
                             child: Container(
                               color: Colors.white,
-                              width: 57,
+                              width: 70,
                               height: 20,
-                              child: const Center(
+                              child: Center(
                                 child: Text(
-                                  'Departure',
+                                  'Departure'.tr().toString(),
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 12,
                                     color: kGreyColor,
                                   ),
@@ -357,7 +369,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                       ),
                     ),
                     const SizedBox(
-                      width: 16.0,
+                      width: 14.0,
                     ),
                     Expanded(
                       flex: 1,
@@ -379,10 +391,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                               ),
                               child: Center(
                                 child: Row(
-                                  children: const [
-                                    Text(
-                                      '+ Add Return Date',
+                                  children: [
+                                    const Text(
+                                      '+ ',
                                       style: TextStyle(
+                                        color: kGreyColor,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Add_Return_Date'.tr().toString(),
+                                      style: const TextStyle(
                                         color: kGreyColor,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 14,
@@ -394,17 +414,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                             ),
                           ),
                           Positioned(
-                            left: 15,
-                            top: -10,
+                            left: (currentLanguage == 'en_EN') ? 15 : 75,
+                            right: (currentLanguage == 'en_EN') ? 100 : 15,
+                            top: -8,
                             child: Container(
                               color: Colors.white,
-                              width: 45,
+                              width: (currentLanguage == 'en_EN') ? 40 : 60,
                               height: 20,
-                              child: const Center(
+                              child: Center(
                                 child: Text(
-                                  'Return',
+                                  'Return'.tr().toString(),
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 12,
                                     color: kGreyColor,
                                   ),
@@ -440,10 +461,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                         ),
                         child: Center(
                           child: Row(
-                            children: const [
-                              Text(
-                                '1 Adult',
+                            children: [
+                              const Text(
+                                '1 ',
                                 style: TextStyle(
+                                  color: kDarkColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                'Adult'.tr().toString(),
+                                style: const TextStyle(
                                   color: kDarkColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14,
@@ -455,17 +484,19 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                       ),
                     ),
                     Positioned(
-                      left: 15,
+                      left: (currentLanguage == 'en_EN')
+                          ? 15
+                          : MediaQuery.of(context).size.width * 0.68,
                       top: -10,
                       child: Container(
                         color: Colors.white,
-                        width: 57,
+                        width: 50,
                         height: 20,
-                        child: const Center(
+                        child: Center(
                           child: Text(
-                            'Traveller',
+                            'Traveller'.tr().toString(),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               color: kGreyColor,
                             ),
@@ -498,10 +529,10 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                         ),
                         child: Center(
                           child: Row(
-                            children: const [
+                            children: [
                               Text(
-                                'Economy',
-                                style: TextStyle(
+                                'Economy'.tr().toString(),
+                                style: const TextStyle(
                                   color: kDarkColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14,
@@ -513,17 +544,19 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                       ),
                     ),
                     Positioned(
-                      left: 15,
+                      left: (currentLanguage == 'en_EN')
+                          ? 15
+                          : MediaQuery.of(context).size.width * 0.68,
                       top: -10,
                       child: Container(
                         color: Colors.white,
-                        width: 40,
+                        width: 50,
                         height: 20,
-                        child: const Center(
+                        child: Center(
                           child: Text(
-                            'Class',
+                            'Class'.tr().toString(),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               color: kGreyColor,
                             ),
@@ -559,5 +592,13 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
         ),
       ),
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Locale myLocale = Localizations.localeOf(context);
+    currentLanguage = myLocale.toString();
+    debugPrint('$myLocale'.toString());
   }
 }

@@ -178,4 +178,11 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
       ),
     );
   }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Locale myLocale = Localizations.localeOf(context);
+    debugPrint('$myLocale'.toString());
+  }
 }
