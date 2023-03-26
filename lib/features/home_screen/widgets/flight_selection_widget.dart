@@ -16,6 +16,75 @@ class FlightSelectionWidget extends StatefulWidget {
 
 class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
   String? currentLanguage;
+  String deFormattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  String? reFormattedDate;
+  DateTime date = DateTime.now();
+
+  dePickedDateFun() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: kPrimaryColor,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: kPrimaryColor, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
+    if (pickedDate != null) {
+      setState(() {
+        date = pickedDate;
+        deFormattedDate = DateFormat('yyyy-MM-dd').format(date);
+      });
+    } else {
+      debugPrint('It\'s null or something is wrong');
+    }
+  }
+
+  rePickedDateFun() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: kPrimaryColor,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: kPrimaryColor, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
+    if (pickedDate != null) {
+      setState(() {
+        date = pickedDate;
+        reFormattedDate = DateFormat('yyyy-MM-dd').format(date);
+      });
+    } else {
+      debugPrint('It\'s null or something is wrong');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -322,25 +391,28 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                 right: 16,
                               ),
                               child: Center(
-                                child: Row(
-                                  children: const [
-                                    Icon(
-                                      Icons.date_range_outlined,
-                                      color: kGreyColor,
-                                      size: 22,
-                                    ),
-                                    SizedBox(
-                                      width: 14,
-                                    ),
-                                    Text(
-                                      '15/07/2022',
-                                      style: TextStyle(
-                                        color: kDarkColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14,
+                                child: GestureDetector(
+                                  onTap: dePickedDateFun,
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.date_range_outlined,
+                                        color: kGreyColor,
+                                        size: 22,
                                       ),
-                                    ),
-                                  ],
+                                      const SizedBox(
+                                        width: 14,
+                                      ),
+                                      Text(
+                                        deFormattedDate,
+                                        style: const TextStyle(
+                                          color: kDarkColor,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -390,25 +462,29 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                 right: 16,
                               ),
                               child: Center(
-                                child: Row(
-                                  children: [
-                                    const Text(
-                                      '+ ',
-                                      style: TextStyle(
-                                        color: kGreyColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14,
+                                child: GestureDetector(
+                                  onTap: rePickedDateFun,
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        reFormattedDate == null ? '+ ' : ' ',
+                                        style: const TextStyle(
+                                          color: kGreyColor,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      'Add_Return_Date'.tr().toString(),
-                                      style: const TextStyle(
-                                        color: kGreyColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14,
+                                      Text(
+                                        reFormattedDate ??
+                                            'Add_Return_Date'.tr().toString(),
+                                        style: const TextStyle(
+                                          color: kGreyColor,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
