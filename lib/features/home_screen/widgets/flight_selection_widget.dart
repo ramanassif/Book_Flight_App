@@ -19,72 +19,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
   String deFormattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   String? reFormattedDate;
   DateTime date = DateTime.now();
-
-  dePickedDateFun() async {
-    DateTime? pickedDate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2030),
-        builder: (context, child) {
-          return Theme(
-            data: Theme.of(context).copyWith(
-              colorScheme: const ColorScheme.light(
-                primary: kPrimaryColor,
-                onPrimary: Colors.white,
-                onSurface: Colors.black,
-              ),
-              textButtonTheme: TextButtonThemeData(
-                style: TextButton.styleFrom(
-                  primary: kPrimaryColor, // button text color
-                ),
-              ),
-            ),
-            child: child!,
-          );
-        });
-    if (pickedDate != null) {
-      setState(() {
-        date = pickedDate;
-        deFormattedDate = DateFormat('yyyy-MM-dd').format(date);
-      });
-    } else {
-      debugPrint('It\'s null or something is wrong');
-    }
-  }
-
-  rePickedDateFun() async {
-    DateTime? pickedDate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2030),
-        builder: (context, child) {
-          return Theme(
-            data: Theme.of(context).copyWith(
-              colorScheme: const ColorScheme.light(
-                primary: kPrimaryColor,
-                onPrimary: Colors.white,
-                onSurface: Colors.black,
-              ),
-              textButtonTheme: TextButtonThemeData(
-                style: TextButton.styleFrom(
-                  primary: kPrimaryColor, // button text color
-                ),
-              ),
-            ),
-            child: child!,
-          );
-        });
-    if (pickedDate != null) {
-      setState(() {
-        date = pickedDate;
-        reFormattedDate = DateFormat('yyyy-MM-dd').format(date);
-      });
-    } else {
-      debugPrint('It\'s null or something is wrong');
-    }
-  }
+  int numOfAdult = 1;
+  int numOfChildren = 0;
+  String? numOfTravellers;
 
   @override
   Widget build(BuildContext context) {
@@ -536,25 +473,288 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                           right: 16,
                         ),
                         child: Center(
-                          child: Row(
-                            children: [
-                              const Text(
-                                '1 ',
-                                style: TextStyle(
-                                  color: kDarkColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return StatefulBuilder(
+                                      builder: (context, setState) =>
+                                          AlertDialog(
+                                        title: Column(
+                                          children: [
+                                            const Text(
+                                              'Traveller',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 8,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: const [
+                                                    Text(
+                                                      'Adult',
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Age +18',
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const Spacer(),
+                                                Container(
+                                                  width: 100,
+                                                  height: 40,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    border: Border.all(
+                                                        color: Provider.of<ThemeServices>(
+                                                                        context)
+                                                                    .mode ==
+                                                                ThemeMode.dark
+                                                            ? Colors.white
+                                                            : Colors.black),
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 8.0),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceAround,
+                                                      children: [
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              numOfAdult--;
+                                                            });
+                                                          },
+                                                          child: const Icon(
+                                                            CupertinoIcons
+                                                                .minus,
+                                                            color: Colors.grey,
+                                                            size: 14,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          numOfAdult > 1
+                                                              ? numOfAdult
+                                                                  .toString()
+                                                              : '1',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              numOfAdult++;
+                                                              debugPrint(numOfAdult
+                                                                  .toString());
+                                                            });
+                                                          },
+                                                          child: const Icon(
+                                                            CupertinoIcons.plus,
+                                                            color: Colors.grey,
+                                                            size: 14,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 8,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: const [
+                                                    Text(
+                                                      'Children',
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Age 0 - 17',
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const Spacer(),
+                                                Container(
+                                                  width: 100,
+                                                  height: 40,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    border: Border.all(
+                                                        color: Provider.of<ThemeServices>(
+                                                                        context)
+                                                                    .mode ==
+                                                                ThemeMode.dark
+                                                            ? Colors.white
+                                                            : Colors.black),
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 8.0),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceAround,
+                                                      children: [
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              numOfChildren--;
+                                                            });
+                                                          },
+                                                          child: const Icon(
+                                                            CupertinoIcons
+                                                                .minus,
+                                                            color: Colors.grey,
+                                                            size: 14,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          numOfChildren > 0
+                                                              ? numOfChildren
+                                                                  .toString()
+                                                              : '0',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              numOfChildren++;
+                                                            });
+                                                          },
+                                                          child: const Icon(
+                                                            CupertinoIcons.plus,
+                                                            color: Colors.grey,
+                                                            size: 14,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        actions: [
+                                          ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  primary: kPrimaryColor),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: const Text('Save')),
+                                          ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                primary: kPrimaryColor),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text(
+                                              'Cancel',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }).then((value) => setState(() {}));
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  numOfAdult > 1 ? '$numOfAdult ' : '1 ',
+                                  style: const TextStyle(
+                                    color: kDarkColor,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                'Adult'.tr().toString(),
-                                style: const TextStyle(
-                                  color: kDarkColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
+                                Text(
+                                  'Adult'.tr().toString(),
+                                  style: const TextStyle(
+                                    color: kDarkColor,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Visibility(
+                                  visible: numOfChildren <= 0 ? false : true,
+                                  child: Text(
+                                    numOfChildren > 0
+                                        ? ', $numOfChildren '
+                                        : ', 0 ',
+                                    style: const TextStyle(
+                                      color: kDarkColor,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                                Visibility(
+                                  visible: numOfChildren <= 0 ? false : true,
+                                  child: Text(
+                                    'Children'.tr().toString(),
+                                    style: const TextStyle(
+                                      color: kDarkColor,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -676,5 +876,71 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
     Locale myLocale = Localizations.localeOf(context);
     currentLanguage = myLocale.toString();
     debugPrint('$myLocale'.toString());
+  }
+
+  dePickedDateFun() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: kPrimaryColor,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: kPrimaryColor, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
+    if (pickedDate != null) {
+      setState(() {
+        date = pickedDate;
+        deFormattedDate = DateFormat('yyyy-MM-dd').format(date);
+      });
+    } else {
+      debugPrint('It\'s null or something is wrong');
+    }
+  }
+
+  rePickedDateFun() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: kPrimaryColor,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: kPrimaryColor, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
+    if (pickedDate != null) {
+      setState(() {
+        date = pickedDate;
+        reFormattedDate = DateFormat('yyyy-MM-dd').format(date);
+      });
+    } else {
+      debugPrint('It\'s null or something is wrong');
+    }
   }
 }
