@@ -89,11 +89,21 @@ class _CardOfferItemState extends State<CardOfferItem> {
             Expanded(
               flex: 2,
               child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8),
+                    topLeft: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(0)
+                        : const Radius.circular(8),
+                    bottomLeft: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(0)
+                        : const Radius.circular(8),
+                    topRight: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(8)
+                        : const Radius.circular(0),
+                    bottomRight: (currentLanguage == 'en_EN')
+                        ? const Radius.circular(8)
+                        : const Radius.circular(0),
                   ),
                 ),
                 child: Padding(
