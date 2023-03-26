@@ -691,14 +691,15 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                         actions: [
                                           ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  primary: kPrimaryColor),
+                                                  backgroundColor:
+                                                      kPrimaryColor),
                                               onPressed: () {
                                                 Navigator.of(context).pop();
                                               },
-                                              child: const Text('Save')),
+                                              child: const Text('Done')),
                                           ElevatedButton(
                                             style: ElevatedButton.styleFrom(
-                                                primary: kPrimaryColor),
+                                                backgroundColor: kPrimaryColor),
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
@@ -894,7 +895,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               ),
               textButtonTheme: TextButtonThemeData(
                 style: TextButton.styleFrom(
-                  primary: kPrimaryColor, // button text color
+                  foregroundColor: kPrimaryColor, // button text color
                 ),
               ),
             ),
@@ -927,7 +928,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               ),
               textButtonTheme: TextButtonThemeData(
                 style: TextButton.styleFrom(
-                  primary: kPrimaryColor, // button text color
+                  foregroundColor: kPrimaryColor, // button text color
                 ),
               ),
             ),
