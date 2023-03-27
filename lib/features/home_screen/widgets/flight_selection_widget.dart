@@ -849,19 +849,24 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               ),
               Expanded(
                 flex: 1,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: kPrimaryColor),
-                  child: Center(
-                      child: Text(
-                    'Search'.tr().toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, 'searchScreen');
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: kPrimaryColor),
+                    child: Center(
+                        child: Text(
+                      'Search'.tr().toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )),
+                  ),
                 ),
               ),
             ],
