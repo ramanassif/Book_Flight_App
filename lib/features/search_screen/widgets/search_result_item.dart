@@ -207,18 +207,18 @@ class _SearchResultItemState extends State<SearchResultItem> {
                       const SizedBox(
                         width: 8,
                       ),
-                      const Text(
-                        'Business Class',
-                        style: TextStyle(
+                      Text(
+                        'Business_Class'.tr().toString(),
+                        style: const TextStyle(
                           color: kGreyColor,
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       const Spacer(),
-                      const Text(
-                        'From',
-                        style: TextStyle(
+                      Text(
+                        'From'.tr().toString(),
+                        style: const TextStyle(
                           color: kGreyColor,
                           fontSize: 12,
                           fontWeight: FontWeight.w300,
