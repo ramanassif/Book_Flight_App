@@ -135,6 +135,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                   : kLightBackgroundColor,
           centerTitle: true,
           elevation: 0,
+          leading: Container(),
           title: Padding(
             padding: const EdgeInsets.only(
               top: 30,
