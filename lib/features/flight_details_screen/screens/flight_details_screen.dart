@@ -482,19 +482,24 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                       ),
                       Expanded(
                         flex: 1,
-                        child: Container(
-                          height: 56,
-                          decoration: BoxDecoration(
-                            color: kPrimaryColor,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Confirm'.tr().toString(),
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18,
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.pushNamed(context, 'chooseSeatScreen');
+                          },
+                          child: Container(
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Confirm'.tr().toString(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
                           ),
