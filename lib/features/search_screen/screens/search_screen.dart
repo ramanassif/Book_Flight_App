@@ -1,5 +1,6 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/features/search_screen/widgets/search_result_item.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,13 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   String? currentLanguage;
+  List<String> airlinesImages = [
+    'assets/images/indigo.png',
+    'assets/images/delta.png',
+    'assets/images/united.png'
+  ];
+  List<String> startTimes = ['5.50', '4.30', '2.20'];
+  List<String> endTimes = ['7.30', '6.30', '3.30'];
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +35,18 @@ class _SearchScreenState extends State<SearchScreen> {
             leading: Padding(
               padding: const EdgeInsets.only(top: 18.0),
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: Icon(
                   CupertinoIcons.back,
-                  color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                      ? kLightBackgroundColor
-                      :  kDarkBackgroundColor,
+                  color:
+                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+                          ? kLightBackgroundColor
+                          : kDarkBackgroundColor,
                 ),
               ),
             ),
-            centerTitle: true,
-            backgroundColor:
-                Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                    ? kDarkBackgroundColor
-                    : kLightBackgroundColor,
-            elevation: 0,
             title: Padding(
               padding: const EdgeInsets.only(
                 top: 30,
@@ -59,6 +62,41 @@ class _SearchScreenState extends State<SearchScreen> {
                           : kDarkColor,
                   fontWeight: FontWeight.w500,
                 ),
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor:
+                Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+                    ? kDarkBackgroundColor
+                    : kLightBackgroundColor,
+            elevation: 0,
+          ),
+          body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+                  ? kDarkBackgroundColor
+                  : kLightBackgroundColor,
+            ),
+            child: ListView.builder(
+              itemCount: airlinesImages.length,
+              itemBuilder: (context, index) => Column(
+                children: [
+                  SearchResultItem(
+                    airlineImage: airlinesImages[index],
+                    startTime: startTimes[index],
+                    endTime: endTimes[index],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Container(
+                      height: 1,
+                      width: MediaQuery.of(context).size.width,
+                      color: kContainerBorderColor,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
