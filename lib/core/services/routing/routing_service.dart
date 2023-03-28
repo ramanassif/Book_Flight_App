@@ -1,3 +1,4 @@
+import 'package:book_flight_app/features/choose_seat_screen/screens/choose_seat_screen.dart';
 import 'package:book_flight_app/features/flight_details_screen/screens/flight_details_screen.dart';
 import 'package:book_flight_app/features/home_screen/screens/home_screen.dart';
 import 'package:book_flight_app/features/search_screen/screens/search_screen.dart';
@@ -15,6 +16,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const SearchScreen());
       case 'flightDetailsScreen':
         return MaterialPageRoute(builder: (_) => const FlightDetailsScreen());
+      case 'chooseSeatScreen':
+        return MaterialPageRoute(builder: (_) => const ChooseSeatScreen());
     }
     return null;
   }
