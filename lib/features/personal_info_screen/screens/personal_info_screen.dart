@@ -84,7 +84,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     height: 6,
                   ),
                   const Text(
-                    'Hello Traveler',
+                    'Hello Traveller',
                     style: TextStyle(
                       color: kDarkColor,
                       fontSize: 16,
@@ -156,7 +156,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 16.0,
+                            height: 24.0,
                           ),
                           Row(
                             children: [
@@ -214,7 +214,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 16.0,
+                            height: 24.0,
                           ),
                           Row(
                             children: [
@@ -272,7 +272,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 16.0,
+                            height: 24.0,
                           ),
                           Row(
                             children: [
@@ -332,7 +332,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 16.0,
+                            height: 24.0,
                           ),
                           Row(
                             children: [
