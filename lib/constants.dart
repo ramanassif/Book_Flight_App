@@ -9,4 +9,5 @@ const Color kDarkBackgroundColor = Color(0xff424242);
 const Color kContainerBorderColor = Color(0xffE6E8E7);
 const Color kGreyColor = Color(0xff555555);
 const Color kLightGreyColor = Color(0xffD0D0D0);
+const Color kLight2GreyColor = Color(0xffEEEFEF);
 

@@ -1,6 +1,7 @@
 import 'package:book_flight_app/features/choose_seat_screen/screens/choose_seat_screen.dart';
 import 'package:book_flight_app/features/flight_details_screen/screens/flight_details_screen.dart';
 import 'package:book_flight_app/features/home_screen/screens/home_screen.dart';
+import 'package:book_flight_app/features/payment_screen/screens/payment_screen.dart';
 import 'package:book_flight_app/features/personal_info_screen/screens/personal_info_screen.dart';
 import 'package:book_flight_app/features/search_screen/screens/search_screen.dart';
 import 'package:book_flight_app/features/splash_screen/splash_screen.dart';
@@ -21,6 +22,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const ChooseSeatScreen());
       case 'personalInfoScreen':
         return MaterialPageRoute(builder: (_) => const PersonalInfoScreen());
+      case 'paymentScreen':
+        return MaterialPageRoute(builder: (_) => const PaymentScreen());
     }
     return null;
   }

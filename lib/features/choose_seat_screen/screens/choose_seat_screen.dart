@@ -71,357 +71,359 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                   ? kDarkBackgroundColor
                   : kLightBackgroundColor,
             ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 16.0,
-                    right: 16.0,
-                    top: 16.0,
-                    bottom: 24.0,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 16.0,
+                      right: 16.0,
+                      top: 16.0,
+                      bottom: 24.0,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          radius: 8,
+                          backgroundColor: kPrimaryColor,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          'Selected',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: kGreyColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 16.0,
+                        ),
+                        CircleAvatar(
+                          radius: 8,
+                          backgroundColor: Color(0xff7C7270),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          'Emergency exit',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: kGreyColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 16.0,
+                        ),
+                        CircleAvatar(
+                          radius: 8,
+                          backgroundColor: Color(0xffD9D9D9),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          'Reserved',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: kGreyColor,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      CircleAvatar(
-                        radius: 8,
-                        backgroundColor: kPrimaryColor,
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text(
-                        'Selected',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                          color: kGreyColor,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/Intersect.png',
                         ),
-                      ),
-                      SizedBox(
-                        width: 16.0,
-                      ),
-                      CircleAvatar(
-                        radius: 8,
-                        backgroundColor: Color(0xff7C7270),
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text(
-                        'Emergency exit',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                          color: kGreyColor,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 16.0,
-                      ),
-                      CircleAvatar(
-                        radius: 8,
-                        backgroundColor: Color(0xffD9D9D9),
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text(
-                        'Reserved',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                          color: kGreyColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    alignment: Alignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/Intersect.png',
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 24.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/Vector 1.png',
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 24.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/Vector 1.png',
+                                ),
+                                const SizedBox(
+                                  width: 6.0,
+                                ),
+                                Image.asset(
+                                  'assets/images/Vector 2.png',
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 24.0,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
                               ),
-                              const SizedBox(
-                                width: 6.0,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '1A',
+                                      color: kContainerBorderColor),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '1B',
+                                      color: kContainerBorderColor),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '1C',
+                                      color: kContainerBorderColor),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '1D',
+                                      color: kContainerBorderColor),
+                                ],
                               ),
-                              Image.asset(
-                                'assets/images/Vector 2.png',
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
                               ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 24.0,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '2A',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '2B',
+                                      color: const Color(0xffD9D9D9)),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '2C',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '2D',
+                                      color: const Color(0xffD9D9D9)),
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '1A',
-                                    color: kContainerBorderColor),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '1B',
-                                    color: kContainerBorderColor),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '1C',
-                                    color: kContainerBorderColor),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '1D',
-                                    color: kContainerBorderColor),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '3A',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '3B',
+                                      color: const Color(0xffD9D9D9)),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '3C',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '3D',
+                                      color: const Color(0xffD9D9D9)),
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '4A',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '4B',
+                                      color: const Color(0xffD9D9D9)),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '4C',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '4D',
+                                      color: const Color(0xffD9D9D9)),
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '2A',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '2B',
-                                    color: const Color(0xffD9D9D9)),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '2C',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '2D',
-                                    color: const Color(0xffD9D9D9)),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '5A',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '5B',
+                                      color: const Color(0xffD9D9D9)),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '5C',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '5D',
+                                      color: const Color(0xffD9D9D9)),
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '6A',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '6B',
+                                      color: const Color(0xffD9D9D9)),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '6C',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '6D',
+                                      color: const Color(0xffD9D9D9)),
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '3A',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '3B',
-                                    color: const Color(0xffD9D9D9)),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '3C',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '3D',
-                                    color: const Color(0xffD9D9D9)),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 50.0,
+                                right: 50.0,
+                                top: 16.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  seatContainer(
+                                      seatNumber: '1A',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '1B',
+                                      color: const Color(0xffD9D9D9)),
+                                  const Spacer(),
+                                  seatContainer(
+                                      seatNumber: '1C',
+                                      color: const Color(0xffD9D9D9)),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  seatContainer(
+                                      seatNumber: '1D',
+                                      color: const Color(0xffD9D9D9)),
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
+                            const SizedBox(
+                              height: 24,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '4A',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '4B',
-                                    color: const Color(0xffD9D9D9)),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '4C',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '4D',
-                                    color: const Color(0xffD9D9D9)),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '5A',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '5B',
-                                    color: const Color(0xffD9D9D9)),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '5C',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '5D',
-                                    color: const Color(0xffD9D9D9)),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '6A',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '6B',
-                                    color: const Color(0xffD9D9D9)),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '6C',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '6D',
-                                    color: const Color(0xffD9D9D9)),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 50.0,
-                              right: 50.0,
-                              top: 16.0,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                seatContainer(
-                                    seatNumber: '1A',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '1B',
-                                    color: const Color(0xffD9D9D9)),
-                                const Spacer(),
-                                seatContainer(
-                                    seatNumber: '1C',
-                                    color: const Color(0xffD9D9D9)),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                seatContainer(
-                                    seatNumber: '1D',
-                                    color: const Color(0xffD9D9D9)),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 24.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, 'personalInfoScreen');
-                              },
-                              child: Container(
-                                height: 56,
-                                decoration: BoxDecoration(
-                                  color: kPrimaryColor,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Confirm'.tr().toString(),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 24.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, 'personalInfoScreen');
+                                },
+                                child: Container(
+                                  height: 56,
+                                  decoration: BoxDecoration(
+                                    color: kPrimaryColor,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Confirm'.tr().toString(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

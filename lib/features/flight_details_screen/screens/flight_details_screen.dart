@@ -81,7 +81,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                   ),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.55,
+                    height: MediaQuery.of(context).size.height * 0.7,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16.0),
@@ -452,7 +452,10 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 16.0,
+                  ),
                   child: Row(
                     children: [
                       Expanded(
@@ -483,7 +486,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                       Expanded(
                         flex: 1,
                         child: GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             Navigator.pushNamed(context, 'chooseSeatScreen');
                           },
                           child: Container(
