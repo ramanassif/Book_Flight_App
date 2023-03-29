@@ -130,8 +130,9 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                       ),
                                       floatingLabelBehavior:
                                           FloatingLabelBehavior.always,
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 16),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 16, vertical: 16),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
                                         borderSide: const BorderSide(
@@ -188,8 +189,9 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                       ),
                                       floatingLabelBehavior:
                                           FloatingLabelBehavior.always,
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 16),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 16, vertical: 16),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
                                         borderSide: const BorderSide(
@@ -246,8 +248,9 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                       ),
                                       floatingLabelBehavior:
                                           FloatingLabelBehavior.always,
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 16),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 16, vertical: 16),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
                                         borderSide: const BorderSide(
@@ -306,8 +309,9 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                       ),
                                       floatingLabelBehavior:
                                           FloatingLabelBehavior.always,
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 16),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 16, vertical: 16),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
                                         borderSide: const BorderSide(
@@ -345,8 +349,8 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                   child: SizedBox(
                                     width: 16,
                                     height: 16,
-                                    child:
-                                        Image.asset('assets/images/country.png'),
+                                    child: Image.asset(
+                                        'assets/images/country.png'),
                                   ),
                                 ),
                                 Expanded(
@@ -368,8 +372,9 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                       ),
                                       floatingLabelBehavior:
                                           FloatingLabelBehavior.always,
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 16),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 16, vertical: 16),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
                                         borderSide: const BorderSide(
@@ -399,8 +404,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(
-                                    context, 'paymentScreen');
+                                Navigator.pushNamed(context, 'paymentScreen');
                               },
                               child: Container(
                                 height: 56,
@@ -425,8 +429,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(
-                                    context, 'paymentScreen');
+                                Navigator.pushNamed(context, 'paymentScreen');
                               },
                               child: const Text(
                                 'Skip',

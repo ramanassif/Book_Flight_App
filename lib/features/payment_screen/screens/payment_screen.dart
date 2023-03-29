@@ -135,7 +135,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   flex: 1,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: const [
                                       Text(
                                         '5.50',
@@ -177,7 +178,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             radius: 20,
                                             backgroundColor: kPrimaryColor,
                                             child: Padding(
-                                              padding: const EdgeInsets.all(4.0),
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
                                               child: SvgPicture.asset(
                                                 'assets/icons/airplane-in-flight.svg',
                                                 color: kLightColor,
