@@ -1,4 +1,5 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/features/booking_screen/screens/booking_screen.dart';
 import 'package:book_flight_app/features/home_screen/widgets/home_screen_body.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedTab = 0;
   List pages = [
     const HomeScreenBody(),
-    Container(),
+    const BookingScreen(),
     Container(),
     Container(),
     Container(),
