@@ -432,7 +432,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, 'boardingPassScreen');
+                      },
                       child: Container(
                         height: 56,
                         decoration: BoxDecoration(

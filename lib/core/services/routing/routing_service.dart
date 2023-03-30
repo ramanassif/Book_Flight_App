@@ -1,3 +1,4 @@
+import 'package:book_flight_app/features/boarding_pass_screen/screens/boarding_pass_screen.dart';
 import 'package:book_flight_app/features/choose_seat_screen/screens/choose_seat_screen.dart';
 import 'package:book_flight_app/features/flight_details_screen/screens/flight_details_screen.dart';
 import 'package:book_flight_app/features/home_screen/screens/home_screen.dart';
@@ -24,6 +25,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const PersonalInfoScreen());
       case 'paymentScreen':
         return MaterialPageRoute(builder: (_) => const PaymentScreen());
+      case 'boardingPassScreen':
+        return MaterialPageRoute(builder: (_) => const BoardingPassScreen());
     }
     return null;
   }
