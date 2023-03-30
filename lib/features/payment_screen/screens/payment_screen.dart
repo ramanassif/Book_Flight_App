@@ -104,13 +104,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 const Spacer(),
                                 const Icon(
                                   Icons.date_range_outlined,
+                                  color: kGreyColor,
+                                  size: 20,
                                 ),
                                 const SizedBox(
-                                  width: 14,
+                                  width: 8,
                                 ),
                                 const Text(
                                   '15/07/2022',
                                   style: TextStyle(
+                                    color: kGreyColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -160,6 +163,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 Expanded(
                                   flex: 2,
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       const CircleAvatar(
                                         radius: 5,
@@ -267,10 +271,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Card number',
+                        Text(
+                          'Card_number'.tr().toString(),
                           style: TextStyle(
-                            color: kDarkColor,
+                            color: Provider.of<ThemeServices>(context).mode ==
+                                    ThemeMode.dark
+                                ? kLightColor
+                                : kGreyColor,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -287,10 +294,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         const SizedBox(
                           height: 20,
                         ),
-                        const Text(
-                          'Card holder name',
+                        Text(
+                          'Card_holder_name'.tr().toString(),
                           style: TextStyle(
-                            color: kDarkColor,
+                            color: Provider.of<ThemeServices>(context).mode ==
+                                    ThemeMode.dark
+                                ? kLightColor
+                                : kGreyColor,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -313,16 +323,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               flex: 1,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
-                                    'CVV',
+                                    'CVV'.tr().toString(),
                                     style: TextStyle(
-                                      color: kDarkColor,
+                                      color: Provider.of<ThemeServices>(context)
+                                                  .mode ==
+                                              ThemeMode.dark
+                                          ? kLightColor
+                                          : kGreyColor,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  TextField(
+                                  const TextField(
                                     decoration: InputDecoration(
                                       hintText: '000',
                                       focusColor: kPrimaryColor,
@@ -342,16 +356,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               flex: 1,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
-                                    'Expiry date',
+                                    'Expiry_date'.tr().toString(),
                                     style: TextStyle(
-                                      color: kDarkColor,
+                                      color: Provider.of<ThemeServices>(context)
+                                                  .mode ==
+                                              ThemeMode.dark
+                                          ? kLightColor
+                                          : kGreyColor,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  TextField(
+                                  const TextField(
                                     decoration: InputDecoration(
                                       hintText: '05/24',
                                       focusColor: kPrimaryColor,
@@ -374,19 +392,22 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                    child: Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        color: kPrimaryColor,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Confirm'.tr().toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        height: 56,
+                        decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Confirm'.tr().toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),
@@ -397,21 +418,26 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                    child: Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: kPrimaryColor,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Cancel'.tr().toString(),
-                          style: const TextStyle(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: 56,
+                        decoration: BoxDecoration(
+                          border: Border.all(
                             color: kPrimaryColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Cancel'.tr().toString(),
+                            style: const TextStyle(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),

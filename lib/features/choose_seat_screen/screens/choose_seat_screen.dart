@@ -83,56 +83,65 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        CircleAvatar(
+                      children: [
+                        const CircleAvatar(
                           radius: 8,
                           backgroundColor: kPrimaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10.0,
                         ),
                         Text(
-                          'Selected',
+                          'Selected'.tr().toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
-                            color: kGreyColor,
+                            color: Provider.of<ThemeServices>(context).mode ==
+                                    ThemeMode.dark
+                                ? kLightColor
+                                : kGreyColor,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16.0,
                         ),
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 8,
                           backgroundColor: Color(0xff7C7270),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10.0,
                         ),
                         Text(
-                          'Emergency exit',
+                          'Emergency_exit'.tr().toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
-                            color: kGreyColor,
+                            color: Provider.of<ThemeServices>(context).mode ==
+                                    ThemeMode.dark
+                                ? kLightColor
+                                : kGreyColor,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16.0,
                         ),
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 8,
                           backgroundColor: Color(0xffD9D9D9),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10.0,
                         ),
                         Text(
-                          'Reserved',
+                          'Reserved'.tr().toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
-                            color: kGreyColor,
+                            color: Provider.of<ThemeServices>(context).mode ==
+                                    ThemeMode.dark
+                                ? kLightColor
+                                : kGreyColor,
                           ),
                         ),
                       ],
@@ -153,28 +162,17 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                             const SizedBox(
                               height: 24.0,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/images/Vector 1.png',
-                                ),
-                                const SizedBox(
-                                  width: 6.0,
-                                ),
-                                Image.asset(
-                                  'assets/images/Vector 2.png',
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 24.0,
+                            SizedBox(
+                              width: 400,
+                              height: 200,
+                              child: Image.asset(
+                                'assets/images/vector.png',
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
                                 left: 50.0,
                                 right: 50.0,
-                                top: 16.0,
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -416,6 +414,9 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   ),
                                 ),
                               ),
+                            ),
+                            const SizedBox(
+                              height: 24,
                             ),
                           ],
                         ),

@@ -245,7 +245,7 @@ class _SearchResultItemState extends State<SearchResultItem> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pushNamed(context, 'flightDetailsScreen');
                     },
                     child: Container(

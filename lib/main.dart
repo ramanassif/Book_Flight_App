@@ -56,7 +56,6 @@ class MyApp extends StatelessWidget {
           theme: Themes.lightTheme,
           darkTheme: Themes.darkTheme,
           themeMode: model.mode,
-          //home: const SplashScreen(),
           onGenerateRoute: AppRoute.generateRoute,
           initialRoute: 'splashScreen',
         ),

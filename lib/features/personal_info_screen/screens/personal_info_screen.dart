@@ -15,6 +15,9 @@ class PersonalInfoScreen extends StatefulWidget {
 class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
   String? currentLanguage;
   bool isFoucs = false;
+  DateTime date = DateTime.now();
+  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  TextEditingController dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +87,13 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     const SizedBox(
                       height: 6,
                     ),
-                    const Text(
+                    Text(
                       'Hello Traveller',
                       style: TextStyle(
-                        color: kDarkColor,
+                        color: Provider.of<ThemeServices>(context).mode ==
+                                ThemeMode.dark
+                            ? kLightColor
+                            : kDarkColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -115,11 +121,19 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                 ),
                                 Expanded(
                                   child: TextFormField(
+                                    cursorColor: kPrimaryColor,
                                     decoration: InputDecoration(
-                                      labelText: 'Name',
-                                      hintText: 'Enter your name here',
-                                      labelStyle: const TextStyle(
-                                        color: kGreyColor,
+                                      labelText: 'Name'.tr().toString(),
+                                      hintText: 'Enter_your_name_here'
+                                          .tr()
+                                          .toString(),
+                                      labelStyle: TextStyle(
+                                        color:
+                                            Provider.of<ThemeServices>(context)
+                                                        .mode ==
+                                                    ThemeMode.dark
+                                                ? kLightColor
+                                                : kGreyColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -174,11 +188,19 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                 ),
                                 Expanded(
                                   child: TextFormField(
+                                    cursorColor: kPrimaryColor,
                                     decoration: InputDecoration(
-                                      labelText: 'Address',
-                                      hintText: 'Enter your address here',
-                                      labelStyle: const TextStyle(
-                                        color: kGreyColor,
+                                      labelText: 'Address'.tr().toString(),
+                                      hintText: 'Enter_your_address_here'
+                                          .tr()
+                                          .toString(),
+                                      labelStyle: TextStyle(
+                                        color:
+                                            Provider.of<ThemeServices>(context)
+                                                        .mode ==
+                                                    ThemeMode.dark
+                                                ? kLightColor
+                                                : kGreyColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -233,11 +255,17 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                 ),
                                 Expanded(
                                   child: TextFormField(
+                                    cursorColor: kPrimaryColor,
                                     decoration: InputDecoration(
-                                      labelText: 'Passport',
+                                      labelText: 'Passport'.tr().toString(),
                                       hintText: 'ED 25265 589',
-                                      labelStyle: const TextStyle(
-                                        color: kGreyColor,
+                                      labelStyle: TextStyle(
+                                        color:
+                                            Provider.of<ThemeServices>(context)
+                                                        .mode ==
+                                                    ThemeMode.dark
+                                                ? kLightColor
+                                                : kGreyColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -292,16 +320,32 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                 ),
                                 Expanded(
                                   child: TextFormField(
+                                    readOnly: true,
+                                    controller: dateController,
+                                    cursorColor: kPrimaryColor,
                                     decoration: InputDecoration(
-                                      labelText: 'BOD',
-                                      hintText: '12/05/1990',
-                                      labelStyle: const TextStyle(
-                                        color: kGreyColor,
+                                      labelText: 'BOD'.tr().toString(),
+                                      hintText: 'DD-MM-YYYY',
+                                      labelStyle: TextStyle(
+                                        color:
+                                            Provider.of<ThemeServices>(context)
+                                                        .mode ==
+                                                    ThemeMode.dark
+                                                ? kLightColor
+                                                : kGreyColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
                                       ),
-                                      suffixIcon:
-                                          const Icon(Icons.date_range_rounded),
+                                      suffixIcon: GestureDetector(
+                                          onTap: pickedDateFun,
+                                          child: const Icon(
+                                              Icons.date_range_rounded)),
+                                      suffixIconColor:
+                                          MaterialStateColor.resolveWith(
+                                              (states) => states.contains(
+                                                      MaterialState.focused)
+                                                  ? kPrimaryColor
+                                                  : kGreyColor),
                                       hintStyle: const TextStyle(
                                         color: Color(0xffA6A6A6),
                                         fontSize: 14,
@@ -350,21 +394,39 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                                     width: 16,
                                     height: 16,
                                     child: Image.asset(
-                                        'assets/images/country.png'),
+                                      'assets/images/country.png',
+                                      color: Provider.of<ThemeServices>(context)
+                                                  .mode ==
+                                              ThemeMode.dark
+                                          ? kLightColor
+                                          : kGreyColor,
+                                    ),
                                   ),
                                 ),
                                 Expanded(
                                   child: TextFormField(
                                     decoration: InputDecoration(
-                                      labelText: 'Country',
-                                      hintText: 'Country',
-                                      labelStyle: const TextStyle(
-                                        color: kGreyColor,
+                                      labelText: 'Country'.tr().toString(),
+                                      hintText:
+                                          'Choose_your_country'.tr().toString(),
+                                      labelStyle: TextStyle(
+                                        color:
+                                            Provider.of<ThemeServices>(context)
+                                                        .mode ==
+                                                    ThemeMode.dark
+                                                ? kLightColor
+                                                : kGreyColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
                                       ),
                                       suffixIcon:
                                           const Icon(Icons.keyboard_arrow_down),
+                                      suffixIconColor:
+                                          MaterialStateColor.resolveWith(
+                                              (states) => states.contains(
+                                                      MaterialState.focused)
+                                                  ? kPrimaryColor
+                                                  : kGreyColor),
                                       hintStyle: const TextStyle(
                                         color: Color(0xffA6A6A6),
                                         fontSize: 14,
@@ -431,9 +493,9 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                               onTap: () {
                                 Navigator.pushNamed(context, 'paymentScreen');
                               },
-                              child: const Text(
-                                'Skip',
-                                style: TextStyle(
+                              child: Text(
+                                'Skip'.tr().toString(),
+                                style: const TextStyle(
                                   color: kPrimaryColor,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w400,
@@ -458,11 +520,51 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    dateController.text = formattedDate;
+  }
+
+  @override
   void didChangeDependencies() {
     Locale myLocale = Localizations.localeOf(context);
     currentLanguage = myLocale.toString();
     debugPrint('$myLocale'.toString());
     debugPrint(currentLanguage);
     super.didChangeDependencies();
+  }
+
+  pickedDateFun() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: kPrimaryColor,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  foregroundColor: kPrimaryColor, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
+    if (pickedDate != null) {
+      setState(() {
+        date = pickedDate;
+        formattedDate = DateFormat('yyyy-MM-dd').format(date);
+        dateController.text = formattedDate;
+      });
+    } else {
+      debugPrint('It\'s null or something is wrong');
+    }
   }
 }
