@@ -18,6 +18,8 @@ class BookingScreen extends StatefulWidget {
 
 class _BookingScreenState extends State<BookingScreen> {
   String? currentLanguage;
+  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  DateTime date = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -277,20 +279,20 @@ class _BookingScreenState extends State<BookingScreen> {
                                         ),
                                         child: Center(
                                           child: GestureDetector(
-                                            onTap: () {},
+                                            onTap: pickedDateFun,
                                             child: Row(
-                                              children: const [
-                                                Icon(
+                                              children: [
+                                                const Icon(
                                                   Icons.date_range_outlined,
                                                   color: kGreyColor,
                                                   size: 22,
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 12,
                                                 ),
                                                 Text(
-                                                  '15/07/2022',
-                                                  style: TextStyle(
+                                                  formattedDate,
+                                                  style: const TextStyle(
                                                     color: kDarkColor,
                                                     fontWeight: FontWeight.w500,
                                                     fontSize: 14,
@@ -536,7 +538,9 @@ class _BookingScreenState extends State<BookingScreen> {
                             height: 24,
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, 'personalInfoScreen');
+                            },
                             child: Container(
                               height: 40,
                               decoration: BoxDecoration(
@@ -575,5 +579,38 @@ class _BookingScreenState extends State<BookingScreen> {
     debugPrint('$myLocale'.toString());
     debugPrint(currentLanguage);
     super.didChangeDependencies();
+  }
+
+  pickedDateFun() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: kPrimaryColor,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  foregroundColor: kPrimaryColor, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
+    if (pickedDate != null) {
+      setState(() {
+        date = pickedDate;
+        formattedDate = DateFormat('yyyy-MM-dd').format(date);
+      });
+    } else {
+      debugPrint('It\'s null or something is wrong');
+    }
   }
 }

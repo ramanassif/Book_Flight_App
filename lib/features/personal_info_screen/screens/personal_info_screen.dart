@@ -31,7 +31,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Scaffold(
-            resizeToAvoidBottomInset: false,
+            //resizeToAvoidBottomInset: false,
             appBar: AppBar(
               leading: Padding(
                 padding: const EdgeInsets.only(top: 18.0),

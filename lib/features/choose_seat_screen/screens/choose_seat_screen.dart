@@ -14,6 +14,9 @@ class ChooseSeatScreen extends StatefulWidget {
 
 class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
   String? currentLanguage;
+  Color selectedColor = kPrimaryColor;
+  Color emergencyExitColor = const Color(0xff7C7270);
+  Color reversedColor = const Color(0xffD9D9D9);
 
   @override
   Widget build(BuildContext context) {
@@ -441,7 +444,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
     super.didChangeDependencies();
   }
 
-  Container seatContainer({required String seatNumber, required Color color}) {
+  Widget seatContainer({required String seatNumber, required Color color}) {
     return Container(
       width: 40,
       height: 40,
