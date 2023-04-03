@@ -1,3 +1,4 @@
+import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -241,28 +242,17 @@ class _SearchResultItemState extends State<SearchResultItem> {
               ),
               Flexible(
                 flex: 1,
-                fit: FlexFit.tight,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, 'flightDetailsScreen');
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: kPrimaryColor),
-                      child: Center(
-                        child: Text(
-                          'Check'.tr().toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
+                    child: const CustomButton(
+                        title: 'Check',
+                        titleColor: kLightColor,
+                        height: 40,
+                        color: kPrimaryColor),
                   ),
                 ),
               ),

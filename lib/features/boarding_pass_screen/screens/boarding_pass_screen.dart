@@ -1,4 +1,5 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -17,6 +18,8 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
   String? currentLanguage;
   String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   DateTime date = DateTime.now();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +57,10 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                 child: Text(
                   'Boarding_Pass'.tr().toString(),
                   style: TextStyle(
-                    fontSize: 20,
                     color: Provider.of<ThemeServices>(context).mode ==
                             ThemeMode.dark
                         ? kLightColor
                         : kDarkColor,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -267,141 +268,145 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                       children: [
                         Expanded(
                           flex: 1,
-                          child: Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                              Container(
-                                height: 46,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
+                          child: GestureDetector(
+                            onTap: pickedDateFun,
+                            child: TextField(
+                              enabled: false,
+                              controller: dateController,
+                              cursorColor: kPrimaryColor,
+                              decoration: InputDecoration(
+                                prefix: Padding(
+                                  padding: EdgeInsets.only(
+                                    right: currentLanguage == 'en_EN' ? 4.0 : 0,
+                                    left: currentLanguage == 'en_EN' ? 0 : 4.0,
+                                  ),
+                                  child: Transform.translate(
+                                    offset: const Offset(0, 4),
+                                    child: const Icon(
+                                      Icons.date_range_outlined,
+                                      size: 20,
+                                    ),
+                                  ),
+                                ),
+                                labelText: 'Date'.tr().toString(),
+                                hintText: formattedDate,
+                                labelStyle: TextStyle(
+                                  color: Provider.of<ThemeServices>(context)
+                                              .mode ==
+                                          ThemeMode.dark
+                                      ? kLightColor
+                                      : kGreyColor,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                hintStyle: const TextStyle(
+                                  color: Color(0xffA6A6A6),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 16),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(
                                     color: kContainerBorderColor,
                                   ),
+                                  gapPadding: 8,
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 16,
-                                    right: 16,
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(
+                                    color: kContainerBorderColor,
                                   ),
-                                  child: Center(
-                                    child: GestureDetector(
-                                      onTap: pickedDateFun,
-                                      child: Row(
-                                        children: [
-                                          const Icon(
-                                            Icons.date_range_outlined,
-                                            color: kGreyColor,
-                                            size: 22,
-                                          ),
-                                          const SizedBox(
-                                            width: 12,
-                                          ),
-                                          Text(
-                                            formattedDate,
-                                            style: const TextStyle(
-                                              color: kDarkColor,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                  gapPadding: 8,
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(
+                                    color: kPrimaryColor,
                                   ),
+                                  gapPadding: 8,
                                 ),
                               ),
-                              Positioned(
-                                left: (currentLanguage == 'en_EN') ? 15 : 110,
-                                right: (currentLanguage == 'en_EN') ? 110 : 15,
-                                top: -8,
-                                child: Container(
-                                  color: kLightColor,
-                                  width: 40,
-                                  height: 20,
-                                  child: Center(
-                                    child: Text(
-                                      'Date'.tr().toString(),
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: kGreyColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
                           ),
                         ),
                         const SizedBox(
-                          width: 14.0,
+                          width: 8,
                         ),
                         Expanded(
                           flex: 1,
-                          child: Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                              Container(
-                                height: 46,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: kContainerBorderColor,
-                                  ),
+                          child: TextField(
+                            readOnly: true,
+                            textAlignVertical: TextAlignVertical.center,
+                            controller: timeController,
+                            cursorColor: kPrimaryColor,
+                            decoration: InputDecoration(
+                              labelText: 'Time'.tr().toString(),
+                              hintText: '9.30'.tr().toString(),
+                              prefix: Padding(
+                                padding: EdgeInsets.only(
+                                  right: currentLanguage == 'en_EN' ? 4.0 : 0,
+                                  left: currentLanguage == 'en_EN' ? 0 : 4.0,
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 16,
-                                    right: 16,
-                                  ),
-                                  child: Center(
-                                    child: GestureDetector(
-                                      onTap: () {},
-                                      child: Row(
-                                        children: const [
-                                          Icon(
-                                            Icons.access_time,
-                                            color: kGreyColor,
-                                            size: 22,
-                                          ),
-                                          SizedBox(
-                                            width: 12,
-                                          ),
-                                          Text(
-                                            '09.30',
-                                            style: TextStyle(
-                                              color: kDarkColor,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                child: Transform.translate(
+                                  offset: const Offset(0, 4),
+                                  child: const Icon(
+                                    Icons.access_time,
+                                    size: 20,
                                   ),
                                 ),
                               ),
-                              Positioned(
-                                left: (currentLanguage == 'en_EN') ? 15 : 110,
-                                right: (currentLanguage == 'en_EN') ? 110 : 15,
-                                top: -8,
-                                child: Container(
-                                  color: kLightColor,
-                                  width: 40,
-                                  height: 20,
-                                  child: Center(
-                                    child: Text(
-                                      'Time'.tr().toString(),
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: kGreyColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                              labelStyle: TextStyle(
+                                color:
+                                    Provider.of<ThemeServices>(context).mode ==
+                                            ThemeMode.dark
+                                        ? kLightColor
+                                        : kGreyColor,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
                               ),
-                            ],
+                              hintStyle: const TextStyle(
+                                color: Color(0xffA6A6A6),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.always,
+                              contentPadding: const EdgeInsets.only(
+                                left: 16,
+                                right: 16,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(
+                                  color: kContainerBorderColor,
+                                ),
+                                gapPadding: 8,
+                              ),
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(
+                                  color: kContainerBorderColor,
+                                ),
+                                gapPadding: 8,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(
+                                  color: kPrimaryColor,
+                                ),
+                                gapPadding: 8,
+                              ),
+                            ),
+                            onChanged: (value) {
+                              setState(() {});
+                            },
                           ),
                         ),
                       ],
@@ -547,10 +552,13 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                         const SizedBox(
                           height: 6,
                         ),
-                        const Text(
+                        Text(
                           'IND222B589659',
                           style: TextStyle(
-                            color: kDarkColor,
+                            color: Provider.of<ThemeServices>(context).mode ==
+                                    ThemeMode.dark
+                                ? kLightColor
+                                : kDarkColor,
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                           ),
@@ -562,22 +570,11 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                     ),
                     GestureDetector(
                       onTap: () {},
-                      child: Container(
-                        height: 56,
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Download'.tr().toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
+                      child: const CustomButton(
+                        title: 'Download',
+                        height: 56.0,
+                        color: kPrimaryColor,
+                        titleColor: kLightColor,
                       ),
                     ),
                     const SizedBox(
@@ -616,6 +613,13 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
     debugPrint('$myLocale'.toString());
     debugPrint(currentLanguage);
     super.didChangeDependencies();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    dateController.text = formattedDate;
+    timeController.text = '9.30';
   }
 
   pickedDateFun() async {

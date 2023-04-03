@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -464,26 +465,13 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                   ),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         flex: 1,
-                        child: Container(
+                        child: CustomButton(
+                          title: 'Cancel',
+                          color: kLightColor,
                           height: 56,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: kPrimaryColor,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Cancel'.tr().toString(),
-                              style: const TextStyle(
-                                color: kPrimaryColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
+                          titleColor: kPrimaryColor,
                         ),
                       ),
                       const SizedBox(
@@ -495,22 +483,11 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                           onTap: () {
                             Navigator.pushNamed(context, 'chooseSeatScreen');
                           },
-                          child: Container(
+                          child: const CustomButton(
+                            title: 'Confirm',
+                            color: kPrimaryColor,
                             height: 56,
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Confirm'.tr().toString(),
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
+                            titleColor: kLightColor,
                           ),
                         ),
                       ),

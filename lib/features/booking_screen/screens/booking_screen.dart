@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -538,27 +539,16 @@ class _BookingScreenState extends State<BookingScreen> {
                             height: 24,
                           ),
                           GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, 'personalInfoScreen');
-                            },
-                            child: Container(
-                              height: 40,
-                              decoration: BoxDecoration(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, 'personalInfoScreen');
+                              },
+                              child: const CustomButton(
+                                title: 'Modify',
+                                titleColor: kLightColor,
                                 color: kPrimaryColor,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Modify'.tr().toString(),
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                                height: 40,
+                              )),
                         ],
                       ),
                     ),

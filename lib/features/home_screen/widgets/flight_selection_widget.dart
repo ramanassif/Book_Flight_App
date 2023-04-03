@@ -1,4 +1,5 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -849,26 +850,26 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               ),
               Expanded(
                 flex: 1,
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, 'searchScreen');
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: kPrimaryColor),
-                    child: Center(
-                        child: Text(
-                      'Search'.tr().toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )),
+
+                child: Material(
+                  color: kPrimaryColor,
+                  borderRadius: BorderRadius.circular(12),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () {
+                      Navigator.pushNamed(context, 'searchScreen');
+                    },
+                    child: const CustomButton(
+                      title: 'Search',
+                      titleColor: kLightColor,
+                      height: 56,
+                      color: kPrimaryColor,
+                    ),
                   ),
                 ),
+
               ),
+
             ],
           ),
         ),

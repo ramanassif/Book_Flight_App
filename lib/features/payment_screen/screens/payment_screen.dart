@@ -1,4 +1,5 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -435,22 +436,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       onTap: () {
                         Navigator.pushNamed(context, 'boardingPassScreen');
                       },
-                      child: Container(
-                        height: 56,
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Confirm'.tr().toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
+                      child: const CustomButton(
+                        title: 'Confirm',
+                        color: kPrimaryColor,
+                        height: 56.0,
+                        titleColor: kLightColor,
                       ),
                     ),
                   ),
@@ -463,24 +453,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       onTap: () {
                         Navigator.of(context).pop();
                       },
-                      child: Container(
-                        height: 56,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: kPrimaryColor,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Cancel'.tr().toString(),
-                            style: const TextStyle(
-                              color: kPrimaryColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
+                      child: const CustomButton(
+                        title: 'Cancel',
+                        color: Colors.white,
+                        height: 56.0,
+                        titleColor: kPrimaryColor,
                       ),
                     ),
                   ),

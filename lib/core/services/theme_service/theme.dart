@@ -8,9 +8,16 @@ class Themes with ChangeNotifier {
     iconTheme: const IconThemeData(color: kDarkColor),
     fontFamily: 'Inter',
   );
+
   static final darkTheme = ThemeData(
     primaryColor: kPrimaryColor,
     brightness: Brightness.dark,
+    textTheme: TextTheme(
+      bodyText1: TextStyle(
+
+      )
+    ),
     fontFamily: 'Inter',
   );
+
 }
