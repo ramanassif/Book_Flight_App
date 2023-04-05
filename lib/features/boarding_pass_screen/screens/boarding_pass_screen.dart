@@ -1,5 +1,6 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -268,71 +269,13 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                       children: [
                         Expanded(
                           flex: 1,
-                          child: GestureDetector(
+                          child: InkWell(
                             onTap: pickedDateFun,
-                            child: TextField(
-                              enabled: false,
+                            child: CustomTimeAndDateTextField(
+                              label: 'Date',
+                              iconData: Icons.date_range_outlined,
+                              textValue: formattedDate,
                               controller: dateController,
-                              cursorColor: kPrimaryColor,
-                              decoration: InputDecoration(
-                                prefix: Padding(
-                                  padding: EdgeInsets.only(
-                                    right: currentLanguage == 'en_EN' ? 4.0 : 0,
-                                    left: currentLanguage == 'en_EN' ? 0 : 4.0,
-                                  ),
-                                  child: Transform.translate(
-                                    offset: const Offset(0, 4),
-                                    child: const Icon(
-                                      Icons.date_range_outlined,
-                                      size: 20,
-                                    ),
-                                  ),
-                                ),
-                                labelText: 'Date'.tr().toString(),
-                                hintText: formattedDate,
-                                labelStyle: TextStyle(
-                                  color: Provider.of<ThemeServices>(context)
-                                              .mode ==
-                                          ThemeMode.dark
-                                      ? kLightColor
-                                      : kGreyColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                hintStyle: const TextStyle(
-                                  color: Color(0xffA6A6A6),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
-                                contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 16),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  borderSide: const BorderSide(
-                                    color: kContainerBorderColor,
-                                  ),
-                                  gapPadding: 8,
-                                ),
-                                disabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  borderSide: const BorderSide(
-                                    color: kContainerBorderColor,
-                                  ),
-                                  gapPadding: 8,
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  borderSide: const BorderSide(
-                                    color: kPrimaryColor,
-                                  ),
-                                  gapPadding: 8,
-                                ),
-                              ),
-                              onChanged: (value) {
-                                setState(() {});
-                              },
                             ),
                           ),
                         ),
@@ -341,78 +284,17 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: TextField(
-                            readOnly: true,
-                            textAlignVertical: TextAlignVertical.center,
+                          child: CustomTimeAndDateTextField(
+                            label: 'Time',
+                            iconData: Icons.access_time_outlined,
+                            textValue: '9.30',
                             controller: timeController,
-                            cursorColor: kPrimaryColor,
-                            decoration: InputDecoration(
-                              labelText: 'Time'.tr().toString(),
-                              hintText: '9.30'.tr().toString(),
-                              prefix: Padding(
-                                padding: EdgeInsets.only(
-                                  right: currentLanguage == 'en_EN' ? 4.0 : 0,
-                                  left: currentLanguage == 'en_EN' ? 0 : 4.0,
-                                ),
-                                child: Transform.translate(
-                                  offset: const Offset(0, 4),
-                                  child: const Icon(
-                                    Icons.access_time,
-                                    size: 20,
-                                  ),
-                                ),
-                              ),
-                              labelStyle: TextStyle(
-                                color:
-                                    Provider.of<ThemeServices>(context).mode ==
-                                            ThemeMode.dark
-                                        ? kLightColor
-                                        : kGreyColor,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                              ),
-                              hintStyle: const TextStyle(
-                                color: Color(0xffA6A6A6),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                              ),
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
-                              contentPadding: const EdgeInsets.only(
-                                left: 16,
-                                right: 16,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: const BorderSide(
-                                  color: kContainerBorderColor,
-                                ),
-                                gapPadding: 8,
-                              ),
-                              disabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: const BorderSide(
-                                  color: kContainerBorderColor,
-                                ),
-                                gapPadding: 8,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: const BorderSide(
-                                  color: kPrimaryColor,
-                                ),
-                                gapPadding: 8,
-                              ),
-                            ),
-                            onChanged: (value) {
-                              setState(() {});
-                            },
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(
-                      height: 32,
+                      height: 24,
                     ),
                     Container(
                       height: 1,
@@ -649,6 +531,7 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
       setState(() {
         date = pickedDate;
         formattedDate = DateFormat('yyyy-MM-dd').format(date);
+        dateController.text = formattedDate;
       });
     } else {
       debugPrint('It\'s null or something is wrong');
