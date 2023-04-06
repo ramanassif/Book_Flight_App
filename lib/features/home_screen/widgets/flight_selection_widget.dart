@@ -1,5 +1,6 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -23,6 +24,8 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
   int numOfAdult = 1;
   int numOfChildren = 0;
   String? numOfTravellers;
+  TextEditingController deDateController = TextEditingController();
+  TextEditingController reDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -304,7 +307,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 8,
               ),
               Expanded(
                 flex: 1,
@@ -312,149 +315,37 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                   children: [
                     Expanded(
                       flex: 1,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        clipBehavior: Clip.none,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                color: kContainerBorderColor,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 16,
-                                right: 16,
-                              ),
-                              child: Center(
-                                child: GestureDetector(
-                                  onTap: dePickedDateFun,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.date_range_outlined,
-                                        color: kGreyColor,
-                                        size: 22,
-                                      ),
-                                      const SizedBox(
-                                        width: 14,
-                                      ),
-                                      Text(
-                                        deFormattedDate,
-                                        style: const TextStyle(
-                                          color: kDarkColor,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: (currentLanguage == 'en_EN') ? 15 : 75,
-                            right: (currentLanguage == 'en_EN') ? 75 : 15,
-                            top: -8,
-                            child: Container(
-                              color: Colors.white,
-                              width: 70,
-                              height: 20,
-                              child: Center(
-                                child: Text(
-                                  'Departure'.tr().toString(),
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: kGreyColor,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                      child: InkWell(
+                        onTap: dePickedDateFun,
+                        child: CustomTimeAndDateTextField(
+                          label: 'Departure',
+                          iconData: Icons.date_range_outlined,
+                          textValue: deFormattedDate,
+                          controller: deDateController,
+                        ),
                       ),
                     ),
                     const SizedBox(
-                      width: 14.0,
+                      width: 8.0,
                     ),
                     Expanded(
                       flex: 1,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        clipBehavior: Clip.none,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                color: kContainerBorderColor,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 16,
-                                right: 16,
-                              ),
-                              child: Center(
-                                child: GestureDetector(
-                                  onTap: rePickedDateFun,
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        reFormattedDate == null ? '+ ' : ' ',
-                                        style: const TextStyle(
-                                          color: kGreyColor,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                      Text(
-                                        reFormattedDate ??
-                                            'Add_Return_Date'.tr().toString(),
-                                        style: const TextStyle(
-                                          color: kGreyColor,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: (currentLanguage == 'en_EN') ? 15 : 75,
-                            right: (currentLanguage == 'en_EN') ? 100 : 15,
-                            top: -8,
-                            child: Container(
-                              color: Colors.white,
-                              width: (currentLanguage == 'en_EN') ? 40 : 60,
-                              height: 20,
-                              child: Center(
-                                child: Text(
-                                  'Return'.tr().toString(),
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: kGreyColor,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                      child: InkWell(
+                        onTap: rePickedDateFun,
+                        child: CustomTimeAndDateTextField(
+                          label: 'Return',
+                          iconData: CupertinoIcons.plus,
+                          textValue: reFormattedDate ??
+                              'Add_Return_Date'.tr().toString(),
+                          controller: reDateController,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 8,
               ),
               Expanded(
                 flex: 1,
@@ -850,7 +741,6 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               ),
               Expanded(
                 flex: 1,
-
                 child: Material(
                   color: kPrimaryColor,
                   borderRadius: BorderRadius.circular(12),
@@ -867,14 +757,18 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                     ),
                   ),
                 ),
-
               ),
-
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    deDateController.text = deFormattedDate;
   }
 
   @override
@@ -912,6 +806,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
       setState(() {
         date = pickedDate;
         deFormattedDate = DateFormat('yyyy-MM-dd').format(date);
+        deDateController.text = deFormattedDate;
       });
     } else {
       debugPrint('It\'s null or something is wrong');
@@ -921,8 +816,8 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
   rePickedDateFun() async {
     DateTime? pickedDate = await showDatePicker(
         context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2000),
+        initialDate: DateTime.parse(deFormattedDate),
+        firstDate: DateTime.parse(deFormattedDate),
         lastDate: DateTime(2030),
         builder: (context, child) {
           return Theme(
@@ -945,6 +840,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
       setState(() {
         date = pickedDate;
         reFormattedDate = DateFormat('yyyy-MM-dd').format(date);
+        reDateController.text = reFormattedDate!;
       });
     } else {
       debugPrint('It\'s null or something is wrong');

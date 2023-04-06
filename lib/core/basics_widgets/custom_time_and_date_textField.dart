@@ -33,6 +33,9 @@ class _CustomTimeAndDateTextFieldState
       enabled: false,
       controller: widget.controller,
       cursorColor: kPrimaryColor,
+      style: const TextStyle(
+        fontSize: 14,
+      ),
       decoration: InputDecoration(
         prefix: Padding(
           padding: EdgeInsets.only(
@@ -61,8 +64,12 @@ class _CustomTimeAndDateTextFieldState
           fontWeight: FontWeight.w400,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: EdgeInsets.only(
+          left: currentLanguage == 'en_EN' ? 12 : 0,
+          right: currentLanguage == 'en_EN' ? 0 : 12,
+          top: 16,
+          bottom: 16,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(
