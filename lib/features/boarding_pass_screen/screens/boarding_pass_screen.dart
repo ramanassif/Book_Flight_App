@@ -284,11 +284,14 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: CustomTimeAndDateTextField(
-                            label: 'Time',
-                            iconData: Icons.access_time_outlined,
-                            textValue: '9.30',
-                            controller: timeController,
+                          child: InkWell(
+                            onTap: (){},
+                            child: CustomTimeAndDateTextField(
+                              label: 'Time',
+                              iconData: Icons.access_time_outlined,
+                              textValue: '9.30',
+                              controller: timeController,
+                            ),
                           ),
                         ),
                       ],

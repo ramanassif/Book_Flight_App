@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
+import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -20,6 +21,8 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
   String? currentLanguage;
   String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   DateTime date = DateTime.now();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -271,74 +274,14 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Container(
-                                      height: 46,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        border: Border.all(
-                                          color: kContainerBorderColor,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 16,
-                                          right: 16,
-                                        ),
-                                        child: Center(
-                                          child: GestureDetector(
-                                            onTap: pickedDateFun,
-                                            child: Row(
-                                              children: [
-                                                const Icon(
-                                                  Icons.date_range_outlined,
-                                                  color: kGreyColor,
-                                                  size: 22,
-                                                ),
-                                                const SizedBox(
-                                                  width: 12,
-                                                ),
-                                                Text(
-                                                  formattedDate,
-                                                  style: const TextStyle(
-                                                    color: kDarkColor,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: (currentLanguage == 'en_EN')
-                                          ? 15
-                                          : 110,
-                                      right: (currentLanguage == 'en_EN')
-                                          ? 110
-                                          : 15,
-                                      top: -8,
-                                      child: Container(
-                                        color: Colors.white,
-                                        width: 40,
-                                        height: 20,
-                                        child: Center(
-                                          child: Text(
-                                            'Date'.tr().toString(),
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                              color: kGreyColor,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                child: InkWell(
+                                  onTap: pickedDateFun,
+                                  child: CustomTimeAndDateTextField(
+                                    label: 'Date',
+                                    iconData: Icons.date_range_outlined,
+                                    textValue: formattedDate,
+                                    controller: dateController,
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -346,75 +289,15 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                               ),
                               Expanded(
                                 flex: 1,
-                                child: Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Container(
-                                      height: 46,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        border: Border.all(
-                                          color: kContainerBorderColor,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 16,
-                                          right: 16,
-                                        ),
-                                        child: Center(
-                                          child: GestureDetector(
-                                            onTap: () {},
-                                            child: Row(
-                                              children: const [
-                                                Icon(
-                                                  Icons.access_time,
-                                                  color: kGreyColor,
-                                                  size: 22,
-                                                ),
-                                                SizedBox(
-                                                  width: 12,
-                                                ),
-                                                Text(
-                                                  '09.30',
-                                                  style: TextStyle(
-                                                    color: kDarkColor,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: (currentLanguage == 'en_EN')
-                                          ? 15
-                                          : 110,
-                                      right: (currentLanguage == 'en_EN')
-                                          ? 110
-                                          : 15,
-                                      top: -8,
-                                      child: Container(
-                                        color: Colors.white,
-                                        width: 40,
-                                        height: 20,
-                                        child: Center(
-                                          child: Text(
-                                            'Time'.tr().toString(),
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                              color: kGreyColor,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                child: InkWell(
+                                  onTap: (){},
+                                  child: CustomTimeAndDateTextField(
+                                    label: 'Time',
+                                    iconData: Icons.access_time_outlined,
+                                    textValue: '9.30',
+                                    controller: timeController,
+                                  ),
+                                )
                               ),
                             ],
                           ),
