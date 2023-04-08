@@ -319,7 +319,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                     child: InkWell(
                       onTap: dePickedDateFun,
                       child: CustomTimeAndDateTextField(
-                        label: 'Departure',
+                        label: 'Departure'.tr().toString(),
                         iconData: Icons.date_range_outlined,
                         textValue: deFormattedDate,
                         controller: deDateController,
@@ -334,7 +334,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                     child: InkWell(
                       onTap: rePickedDateFun,
                       child: CustomTimeAndDateTextField(
-                        label: 'Return',
+                        label: 'Return'.tr().toString(),
                         iconData: CupertinoIcons.plus,
                         textValue: reFormattedDate ??
                             'Add_Return_Date'.tr().toString(),
@@ -363,7 +363,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                         padding: MediaQuery.of(context).viewInsets,
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height / 2,
+                          height: MediaQuery.of(context).size.height > 700
+                              ? MediaQuery.of(context).size.height / 2.5
+                              : MediaQuery.of(context).size.height / 2,
                           child: Builder(builder: (BuildContext context) {
                             return StatefulBuilder(
                               builder: (context, setState) => Padding(
@@ -375,9 +377,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Text(
-                                      'Traveller',
-                                      style: TextStyle(
+                                    Text(
+                                      'Traveller'.tr().toString(),
+                                      style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -392,17 +394,17 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: const [
+                                          children: [
                                             Text(
-                                              'Adult',
-                                              style: TextStyle(
+                                              'Adult'.tr().toString(),
+                                              style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             ),
                                             Text(
-                                              'Age +18',
-                                              style: TextStyle(
+                                              '${'Age'.tr().toString()} +18',
+                                              style: const TextStyle(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -483,17 +485,17 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: const [
+                                          children: [
                                             Text(
-                                              'Children',
-                                              style: TextStyle(
+                                              'Children'.tr().toString(),
+                                              style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             ),
                                             Text(
-                                              'Age 0 - 17',
-                                              style: TextStyle(
+                                              '${'Age'.tr().toString()} 0 - 17',
+                                              style: const TextStyle(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -609,9 +611,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                       onTap: () {
                                         Navigator.pop(context);
                                       },
-                                      child: const Text(
-                                        'Cancel',
-                                        style: TextStyle(
+                                      child: Text(
+                                        'Cancel'.tr().toString(),
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500,
                                             color: kPrimaryColor),
@@ -628,7 +630,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                   );
                 },
                 child: CustomTextField(
-                  label: 'Traveller',
+                  label: 'Traveller'.tr().toString(),
                   controller: travellerController,
                   textValue:
                       '${numOfAdult > 1 ? '$numOfAdult ' : '1 '}${'Adult'.tr().toString()}',
@@ -638,9 +640,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                 height: 16,
               ),
               CustomTextField(
-                label: 'Class',
+                label: 'Class'.tr().toString(),
                 controller: classController,
-                textValue: 'Economy',
+                textValue: 'Economy'.tr().toString(),
               ),
               const SizedBox(
                 height: 16,
@@ -672,7 +674,6 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
   void initState() {
     super.initState();
     deDateController.text = deFormattedDate;
-    travellerController.text = '1 Adult';
   }
 
   @override

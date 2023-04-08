@@ -1,8 +1,6 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
-import 'package:easy_localization/easy_localization.dart' hide TextDirection;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CustomTimeAndDateTextField extends StatefulWidget {
   final String label;
@@ -33,9 +31,7 @@ class _CustomTimeAndDateTextFieldState
       enabled: false,
       controller: widget.controller,
       cursorColor: kPrimaryColor,
-      style: const TextStyle(
-        fontSize: 14,
-      ),
+      style: const TextStyle(fontSize: 14, color: kDarkColor),
       decoration: InputDecoration(
         prefix: Padding(
           padding: EdgeInsets.only(
@@ -47,14 +43,13 @@ class _CustomTimeAndDateTextFieldState
             child: Icon(
               widget.iconData,
               size: 20,
+              color: kDarkColor,
             ),
           ),
         ),
-        labelText: widget.label.tr().toString(),
-        labelStyle: TextStyle(
-          color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-              ? kLightColor
-              : kGreyColor,
+        labelText: widget.label,
+        labelStyle: const TextStyle(
+          color: kGreyColor,
           fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
@@ -98,7 +93,7 @@ class _CustomTimeAndDateTextFieldState
   @override
   void initState() {
     super.initState();
-    widget.controller.text = widget.textValue;
+    //widget.controller.text = widget.textValue;
   }
 
   @override
@@ -107,6 +102,7 @@ class _CustomTimeAndDateTextFieldState
     currentLanguage = myLocale.toString();
     debugPrint('$myLocale'.toString());
     debugPrint(currentLanguage);
+    widget.controller.text = widget.textValue;
     super.didChangeDependencies();
   }
 }

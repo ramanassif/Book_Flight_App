@@ -1,8 +1,6 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CustomTextField extends StatefulWidget {
   final String label;
@@ -31,15 +29,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
       cursorColor: kPrimaryColor,
       style: const TextStyle(
         fontSize: 14,
+        color: kDarkColor,
+        //color: kDarkColor
       ),
       decoration: InputDecoration(
-        labelText: widget.label.tr().toString(),
-        labelStyle: TextStyle(
-          color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-              ? kLightColor
-              : kGreyColor,
+        labelText: widget.label,
+        labelStyle: const TextStyle(
+          color: kGreyColor,
           fontSize: 12,
           fontWeight: FontWeight.w400,
+          //color: kDarkColor,
         ),
         hintStyle: const TextStyle(
           color: Color(0xffA6A6A6),
@@ -81,13 +80,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   void initState() {
     super.initState();
-    widget.controller.text = (widget.textValue).tr().toString();
+    //widget.controller.text = widget.textValue;
   }
 
   @override
   void didChangeDependencies() {
     Locale myLocale = Localizations.localeOf(context);
     currentLanguage = myLocale.toString();
+    widget.controller.text = widget.textValue;
     super.didChangeDependencies();
   }
 }

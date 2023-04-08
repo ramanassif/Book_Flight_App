@@ -12,12 +12,7 @@ class Themes with ChangeNotifier {
   static final darkTheme = ThemeData(
     primaryColor: kPrimaryColor,
     brightness: Brightness.dark,
-    textTheme: TextTheme(
-      bodyText1: TextStyle(
-
-      )
-    ),
     fontFamily: 'Inter',
-  );
 
+  );
 }

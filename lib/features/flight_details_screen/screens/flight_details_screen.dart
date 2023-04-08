@@ -277,7 +277,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                                 child: InkWell(
                                   onTap: pickedDateFun,
                                   child: CustomTimeAndDateTextField(
-                                    label: 'Date',
+                                    label: 'Date'.tr().toString(),
                                     iconData: Icons.date_range_outlined,
                                     textValue: formattedDate,
                                     controller: dateController,
@@ -292,7 +292,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                                 child: InkWell(
                                   onTap: (){},
                                   child: CustomTimeAndDateTextField(
-                                    label: 'Time',
+                                    label: 'Time'.tr().toString(),
                                     iconData: Icons.access_time_outlined,
                                     textValue: '9.30',
                                     controller: timeController,
