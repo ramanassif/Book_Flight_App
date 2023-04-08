@@ -81,15 +81,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   void initState() {
     super.initState();
-    widget.controller.text = widget.textValue;
+    widget.controller.text = (widget.textValue).tr().toString();
   }
 
   @override
   void didChangeDependencies() {
     Locale myLocale = Localizations.localeOf(context);
     currentLanguage = myLocale.toString();
-    debugPrint('$myLocale'.toString());
-    debugPrint(currentLanguage);
     super.didChangeDependencies();
   }
 }
