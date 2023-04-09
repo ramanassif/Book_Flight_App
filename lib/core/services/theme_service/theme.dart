@@ -13,6 +13,5 @@ class Themes with ChangeNotifier {
     primaryColor: kPrimaryColor,
     brightness: Brightness.dark,
     fontFamily: 'Inter',
-
   );
 }

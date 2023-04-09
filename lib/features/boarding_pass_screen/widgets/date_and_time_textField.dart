@@ -1,13 +1,15 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CustomTimeAndDateTextField extends StatefulWidget {
+class TimeAndDateTextField extends StatefulWidget {
   final String label;
   final String textValue;
   final IconData iconData;
   final TextEditingController controller;
 
-  const CustomTimeAndDateTextField({
+  const TimeAndDateTextField({
     Key? key,
     required this.label,
     required this.textValue,
@@ -16,12 +18,10 @@ class CustomTimeAndDateTextField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CustomTimeAndDateTextField> createState() =>
-      _CustomTimeAndDateTextFieldState();
+  State<TimeAndDateTextField> createState() => _TimeAndDateTextFieldState();
 }
 
-class _CustomTimeAndDateTextFieldState
-    extends State<CustomTimeAndDateTextField> {
+class _TimeAndDateTextFieldState extends State<TimeAndDateTextField> {
   String? currentLanguage;
 
   @override
@@ -30,7 +30,12 @@ class _CustomTimeAndDateTextFieldState
       enabled: false,
       controller: widget.controller,
       cursorColor: kPrimaryColor,
-      style: const TextStyle(fontSize: 14, color: kDarkColor),
+      style: TextStyle(
+        fontSize: 14,
+        color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+            ? kLightColor
+            : kDarkColor,
+      ),
       decoration: InputDecoration(
         prefix: Padding(
           padding: EdgeInsets.only(
@@ -42,13 +47,17 @@ class _CustomTimeAndDateTextFieldState
             child: Icon(
               widget.iconData,
               size: 20,
-              color: kDarkColor,
+              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+                  ? kLightColor
+                  : kDarkColor,
             ),
           ),
         ),
         labelText: widget.label,
-        labelStyle: const TextStyle(
-          color: kGreyColor,
+        labelStyle: TextStyle(
+          color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+              ? kLightColor
+              : kGreyColor,
           fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
@@ -92,7 +101,6 @@ class _CustomTimeAndDateTextFieldState
   @override
   void initState() {
     super.initState();
-    //widget.controller.text = widget.textValue;
   }
 
   @override
