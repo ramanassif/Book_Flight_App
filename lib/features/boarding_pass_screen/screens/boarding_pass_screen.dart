@@ -107,8 +107,8 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                     ),
                     GestureDetector(
                       onTap: () {},
-                      child: const CustomButton(
-                        title: 'Download',
+                      child: CustomButton(
+                        title: 'Download'.tr().toString(),
                         height: 56.0,
                         color: kPrimaryColor,
                         titleColor: kLightColor,

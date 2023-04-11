@@ -352,10 +352,10 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         flex: 1,
                         child: CustomButton(
-                          title: 'Cancel',
+                          title: 'Cancel'.tr().toString(),
                           color: kLightColor,
                           height: 56,
                           titleColor: kPrimaryColor,
@@ -370,8 +370,8 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                           onTap: () {
                             Navigator.pushNamed(context, 'chooseSeatScreen');
                           },
-                          child: const CustomButton(
-                            title: 'Confirm',
+                          child: CustomButton(
+                            title: 'Confirm'.tr().toString(),
                             color: kPrimaryColor,
                             height: 56,
                             titleColor: kLightColor,

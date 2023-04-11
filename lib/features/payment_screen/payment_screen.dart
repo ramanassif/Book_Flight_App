@@ -90,8 +90,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       onTap: () {
                         Navigator.pushNamed(context, 'boardingPassScreen');
                       },
-                      child: const CustomButton(
-                        title: 'Confirm',
+                      child: CustomButton(
+                        title: 'Confirm'.tr().toString(),
                         color: kPrimaryColor,
                         height: 56.0,
                         titleColor: kLightColor,
@@ -107,8 +107,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       onTap: () {
                         Navigator.of(context).pop();
                       },
-                      child: const CustomButton(
-                        title: 'Cancel',
+                      child: CustomButton(
+                        title: 'Cancel'.tr().toString(),
                         color: Colors.white,
                         height: 56.0,
                         titleColor: kPrimaryColor,

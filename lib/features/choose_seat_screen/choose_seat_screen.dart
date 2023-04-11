@@ -400,8 +400,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   Navigator.pushNamed(
                                       context, 'personalInfoScreen');
                                 },
-                                child: const CustomButton(
-                                  title: 'Confirm',
+                                child: CustomButton(
+                                  title: 'Confirm'.tr().toString(),
                                   color: kPrimaryColor,
                                   height: 56.0,
                                   titleColor: kLightColor,

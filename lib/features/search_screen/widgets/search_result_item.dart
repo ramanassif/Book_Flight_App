@@ -248,8 +248,8 @@ class _SearchResultItemState extends State<SearchResultItem> {
                     onTap: () {
                       Navigator.pushNamed(context, 'flightDetailsScreen');
                     },
-                    child: const CustomButton(
-                        title: 'Check',
+                    child: CustomButton(
+                        title: 'Check'.tr().toString(),
                         titleColor: kLightColor,
                         height: 40,
                         color: kPrimaryColor),

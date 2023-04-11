@@ -39,9 +39,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
         bottom: 24.0,
       ),
       child: Container(
-        height: MediaQuery.of(context).size.height > 700
-            ? MediaQuery.of(context).size.height / 1.82
-            : MediaQuery.of(context).size.height / 1.5, //windows
+        // height: MediaQuery.of(context).size.height > 700
+        //     ? MediaQuery.of(context).size.height / 1.82
+        //     : MediaQuery.of(context).size.height / 1.5, //windows
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -65,7 +65,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
           child: Column(
             children: [
               SizedBox(
-                height: 130,
+                height: 140,
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
@@ -655,8 +655,8 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, 'searchScreen');
                   },
-                  child: const CustomButton(
-                    title: 'Search',
+                  child: CustomButton(
+                    title: 'Search'.tr().toString(),
                     titleColor: kLightColor,
                     height: 56,
                     color: kPrimaryColor,

@@ -87,8 +87,8 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                         onTap: () {
                           Navigator.pushNamed(context, 'paymentScreen');
                         },
-                        child: const CustomButton(
-                          title: 'Confirm',
+                        child: CustomButton(
+                          title: 'Confirm'.tr().toString(),
                           color: kPrimaryColor,
                           height: 56.0,
                           titleColor: kLightColor,

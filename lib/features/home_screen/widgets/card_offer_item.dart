@@ -118,8 +118,7 @@ class _CardOfferItemState extends State<CardOfferItem> {
                       Text(
                         widget.description,
                         style: const TextStyle(
-                          height: 0,
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: kDarkColor,
                         ),
@@ -130,7 +129,6 @@ class _CardOfferItemState extends State<CardOfferItem> {
                       const Text(
                         'Lorem ipsum dolor sit am etet adip',
                         style: TextStyle(
-                          height: 0,
                           fontSize: 12,
                           fontWeight: FontWeight.w300,
                           color: Colors.grey,
