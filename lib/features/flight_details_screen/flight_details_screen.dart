@@ -21,8 +21,13 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
   String? currentLanguage;
   String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   DateTime date = DateTime.now();
+  TimeOfDay time = TimeOfDay.fromDateTime(DateTime.now());
   TextEditingController dateController = TextEditingController();
   TextEditingController timeController = TextEditingController();
+
+  String? _selectedTime;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -288,17 +293,16 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                                 width: 14.0,
                               ),
                               Expanded(
-                                flex: 1,
-                                child: InkWell(
-                                  onTap: (){},
-                                  child: CustomTimeAndDateTextField(
-                                    label: 'Time'.tr().toString(),
-                                    iconData: Icons.access_time_outlined,
-                                    textValue: '9.30',
-                                    controller: timeController,
-                                  ),
-                                )
-                              ),
+                                  flex: 1,
+                                  child: InkWell(
+                                    onTap: pickedTimeFun,
+                                    child: CustomTimeAndDateTextField(
+                                      label: 'Time'.tr().toString(),
+                                      iconData: Icons.access_time_outlined,
+                                      textValue: '9.30',
+                                      controller: timeController,
+                                    ),
+                                  )),
                             ],
                           ),
                         ),
@@ -424,6 +428,24 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
       });
     } else {
       debugPrint('It\'s null or something is wrong');
+    }
+  }
+
+  Future<void> pickedTimeFun() async {
+    final TimeOfDay? result = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+        builder: (context, child) {
+          return MediaQuery(
+              data:
+              MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+              child: child!);
+        });
+    if (result != null) {
+      setState(() {
+        _selectedTime = result.format(context);
+        timeController.text = _selectedTime.toString();
+      });
     }
   }
 }
