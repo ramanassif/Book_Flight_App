@@ -431,6 +431,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
     currentLanguage = myLocale.toString();
     debugPrint('$myLocale'.toString());
     debugPrint(currentLanguage);
+    precacheImage(const AssetImage("assets/images/vector.png"), context);
     super.didChangeDependencies();
   }
 

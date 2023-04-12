@@ -70,4 +70,10 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(const AssetImage("assets/images/app_logo.png"), context);
+  }
 }
