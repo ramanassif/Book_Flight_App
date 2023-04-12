@@ -20,6 +20,8 @@ class _FlightDetailsState extends State<FlightDetails> {
   TextEditingController dateController = TextEditingController();
   TextEditingController timeController = TextEditingController();
 
+  String? _selectedTime;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -168,7 +170,7 @@ class _FlightDetailsState extends State<FlightDetails> {
             Expanded(
               flex: 1,
               child: InkWell(
-                onTap: () {},
+                onTap: pickedTimeFun,
                 child: TimeAndDateTextField(
                   label: 'Time'.tr().toString(),
                   iconData: Icons.access_time_outlined,
@@ -377,6 +379,24 @@ class _FlightDetailsState extends State<FlightDetails> {
       });
     } else {
       debugPrint('It\'s null or something is wrong');
+    }
+  }
+
+  Future<void> pickedTimeFun() async {
+    final TimeOfDay? result = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+        builder: (context, child) {
+          return MediaQuery(
+              data:
+                  MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+              child: child!);
+        });
+    if (result != null) {
+      setState(() {
+        _selectedTime = result.format(context);
+        timeController.text = _selectedTime.toString();
+      });
     }
   }
 }
