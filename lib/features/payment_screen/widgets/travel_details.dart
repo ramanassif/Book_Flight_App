@@ -10,7 +10,7 @@ class TravelDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height / 2.6,
+      height: MediaQuery.of(context).size.height / 3.2,
       decoration: const BoxDecoration(
         color: kLight2GreyColor,
         borderRadius: BorderRadius.only(

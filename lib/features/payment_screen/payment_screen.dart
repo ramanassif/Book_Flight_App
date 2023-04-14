@@ -1,13 +1,12 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:book_flight_app/features/payment_screen/widgets/card_details.dart';
 import 'package:book_flight_app/features/payment_screen/widgets/card_options.dart';
 import 'package:book_flight_app/features/payment_screen/widgets/travel_details.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -40,10 +39,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   },
                   child: Icon(
                     CupertinoIcons.back,
-                    color: Provider.of<ThemeServices>(context).mode ==
-                            ThemeMode.dark
-                        ? kLightBackgroundColor
-                        : kDarkBackgroundColor,
+                    color: Theme.of(context).themeColors.primaryColor,
                   ),
                 ),
               ),
@@ -54,7 +50,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
                 child: Text(
                   'Payment'.tr().toString(),
-                  style: Theme.of(context).textTheme.displayLarge?.apply(fontWeightDelta: -2),
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayLarge
+                      ?.apply(fontWeightDelta: -2),
                 ),
               ),
               centerTitle: true,
@@ -67,7 +66,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   const TravelDetails(),
                   const CardDetails(),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   const CardOptions(),
                   const SizedBox(
@@ -88,7 +87,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -98,7 +97,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       },
                       child: CustomButton(
                         title: 'Cancel'.tr().toString(),
-                        color: Colors.white,
+                        color: Colors.transparent,
                         height: 56.0,
                         titleColor: kPrimaryColor,
                       ),

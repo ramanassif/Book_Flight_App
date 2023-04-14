@@ -15,6 +15,7 @@ final ThemeData darkThemeData = ThemeData(
   appBarTheme: const AppBarTheme(backgroundColor: kDarkBackgroundColor),
   drawerTheme: const DrawerThemeData(backgroundColor: kDarkBackgroundColor),
   bottomSheetTheme: const BottomSheetThemeData(backgroundColor: kDarkBackgroundColor),
+  iconTheme: const IconThemeData(color: kLightColor),
   textTheme: TextTheme(
     displayLarge: TextStyle(
         fontSize: 20.0,

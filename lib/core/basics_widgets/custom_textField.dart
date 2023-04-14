@@ -1,5 +1,4 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -80,7 +79,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   void initState() {
     super.initState();
-    //widget.controller.text = widget.textValue;
   }
 
   @override

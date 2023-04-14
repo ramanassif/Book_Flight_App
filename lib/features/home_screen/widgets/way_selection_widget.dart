@@ -1,8 +1,6 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class WaySelectionWidget extends StatefulWidget {
   const WaySelectionWidget({Key? key}) : super(key: key);
@@ -35,9 +33,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
             BoxShadow(
               offset: const Offset(0, 3),
               blurRadius: 5.0,
-              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                  ? kDarkColor
-                  : Colors.grey,
+              color: kDarkColor.withOpacity(0.5),
             ),
           ],
         ),

@@ -1,10 +1,9 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:book_flight_app/features/search_screen/widgets/search_result_item.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -41,9 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 child: Icon(
                   CupertinoIcons.back,
                   color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightBackgroundColor
-                          : kDarkBackgroundColor,
+                      Theme.of(context).themeColors.primaryColor,
                 ),
               ),
             ),

@@ -111,7 +111,7 @@ class _FlightDetailsState extends State<FlightDetails> {
               child: Text(
                 'Indira Gandhi International Airport',
                 textAlign: TextAlign.start,
-                style:Theme.of(context).textTheme.headlineSmall?.apply(color: const Color(0xff666666),),
+                style:Theme.of(context).textTheme.headlineSmall?.apply(color: const Color(0xffA6A6A6),),
               ),
             ),
             const Spacer(),
@@ -120,7 +120,7 @@ class _FlightDetailsState extends State<FlightDetails> {
               child: Text(
                 'Subhash Chandra Bose International Airport',
                 textAlign: TextAlign.end,
-                style:Theme.of(context).textTheme.headlineSmall?.apply(color: const Color(0xff666666),),
+                style:Theme.of(context).textTheme.headlineSmall?.apply(color: const Color(0xffA6A6A6),),
               ),
             ),
           ],

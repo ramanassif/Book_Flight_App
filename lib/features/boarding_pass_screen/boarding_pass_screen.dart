@@ -1,13 +1,12 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:book_flight_app/features/boarding_pass_screen/widgets/flight_details.dart';
 import 'package:book_flight_app/features/boarding_pass_screen/widgets/personal_and_flight_info.dart';
 import 'package:book_flight_app/features/boarding_pass_screen/widgets/qr_code_details.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BoardingPassScreen extends StatefulWidget {
   const BoardingPassScreen({Key? key}) : super(key: key);
@@ -40,10 +39,7 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                   },
                   child: Icon(
                     CupertinoIcons.back,
-                    color: Provider.of<ThemeServices>(context).mode ==
-                            ThemeMode.dark
-                        ? kLightBackgroundColor
-                        : kDarkBackgroundColor,
+                    color: Theme.of(context).themeColors.primaryColor,
                   ),
                 ),
               ),
@@ -109,12 +105,10 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 24,
+                      height: 16,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, 'homeScreen');
-                      },
+                      onTap: () {},
                       child: Text(
                         'Book_another_flight'.tr().toString(),
                         style: Theme.of(context).textTheme.displaySmall?.apply(

@@ -1,8 +1,7 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class FormPersonInfo extends StatefulWidget {
   const FormPersonInfo({Key? key}) : super(key: key);
@@ -47,19 +46,8 @@ class _FormPersonInfoState extends State<FormPersonInfo> {
                     decoration: InputDecoration(
                       labelText: 'Name'.tr().toString(),
                       hintText: 'Enter_your_name_here'.tr().toString(),
-                      labelStyle: TextStyle(
-                        color: Provider.of<ThemeServices>(context).mode ==
-                                ThemeMode.dark
-                            ? kLightColor
-                            : kGreyColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      hintStyle: const TextStyle(
-                        color: Color(0xffA6A6A6),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      labelStyle: Theme.of(context).textTheme.bodyMedium,
+                      hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6)),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 16),
@@ -108,19 +96,8 @@ class _FormPersonInfoState extends State<FormPersonInfo> {
                     decoration: InputDecoration(
                       labelText: 'Address'.tr().toString(),
                       hintText: 'Enter_your_address_here'.tr().toString(),
-                      labelStyle: TextStyle(
-                        color: Provider.of<ThemeServices>(context).mode ==
-                                ThemeMode.dark
-                            ? kLightColor
-                            : kGreyColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      hintStyle: const TextStyle(
-                        color: Color(0xffA6A6A6),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      labelStyle: Theme.of(context).textTheme.bodyMedium,
+                      hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6)),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 16),
@@ -169,19 +146,8 @@ class _FormPersonInfoState extends State<FormPersonInfo> {
                     decoration: InputDecoration(
                       labelText: 'Passport'.tr().toString(),
                       hintText: 'ED 25265 589',
-                      labelStyle: TextStyle(
-                        color: Provider.of<ThemeServices>(context).mode ==
-                                ThemeMode.dark
-                            ? kLightColor
-                            : kGreyColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      hintStyle: const TextStyle(
-                        color: Color(0xffA6A6A6),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      labelStyle: Theme.of(context).textTheme.bodyMedium,
+                      hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6)),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 16),
@@ -231,27 +197,17 @@ class _FormPersonInfoState extends State<FormPersonInfo> {
                       enabled: false,
                       controller: dateController,
                       cursorColor: kPrimaryColor,
+                      style: Theme.of(context).textTheme.headlineMedium,
                       decoration: InputDecoration(
                         labelText: 'BOD'.tr().toString(),
                         hintText: 'DD-MM-YYYY',
-                        labelStyle: TextStyle(
-                          color: Provider.of<ThemeServices>(context).mode ==
-                                  ThemeMode.dark
-                              ? kLightColor
-                              : kGreyColor,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        labelStyle: Theme.of(context).textTheme.bodyMedium,
+                        hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6)),
                         suffixIcon: const Icon(Icons.date_range_rounded),
                         suffixIconColor: MaterialStateColor.resolveWith(
                             (states) => states.contains(MaterialState.focused)
                                 ? kPrimaryColor
-                                : kGreyColor),
-                        hintStyle: const TextStyle(
-                          color: Color(0xffA6A6A6),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
+                                : const Color(0xffA6A6A6)),
                         floatingLabelBehavior: FloatingLabelBehavior.always,
                         contentPadding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 16),
@@ -302,10 +258,7 @@ class _FormPersonInfoState extends State<FormPersonInfo> {
                     height: 16,
                     child: Image.asset(
                       'assets/images/country.png',
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kGreyColor,
+                      color: Theme.of(context).themeColors.primaryColor,
                     ),
                   ),
                 ),
@@ -314,24 +267,13 @@ class _FormPersonInfoState extends State<FormPersonInfo> {
                     decoration: InputDecoration(
                       labelText: 'Country'.tr().toString(),
                       hintText: 'Choose_your_country'.tr().toString(),
-                      labelStyle: TextStyle(
-                        color: Provider.of<ThemeServices>(context).mode ==
-                                ThemeMode.dark
-                            ? kLightColor
-                            : kGreyColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      labelStyle: Theme.of(context).textTheme.bodyMedium,
+                      hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6)),
                       suffixIcon: const Icon(Icons.keyboard_arrow_down),
                       suffixIconColor: MaterialStateColor.resolveWith(
                           (states) => states.contains(MaterialState.focused)
                               ? kPrimaryColor
-                              : kGreyColor),
-                      hintStyle: const TextStyle(
-                        color: Color(0xffA6A6A6),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                              : const Color(0xffA6A6A6)),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 16),

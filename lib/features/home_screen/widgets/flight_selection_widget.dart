@@ -3,12 +3,10 @@ import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_textField.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
 import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
 class FlightSelectionWidget extends StatefulWidget {
@@ -40,9 +38,6 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
         bottom: 24.0,
       ),
       child: Container(
-        // height: MediaQuery.of(context).size.height > 700
-        //     ? MediaQuery.of(context).size.height / 1.82
-        //     : MediaQuery.of(context).size.height / 1.5, //windows
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -50,9 +45,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
             BoxShadow(
               offset: const Offset(0, 3),
               blurRadius: 5.0,
-              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                  ? kDarkColor
-                  : Colors.grey,
+              color:  kDarkColor.withOpacity(0.5),
             ),
           ],
         ),
@@ -532,12 +525,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                                 BorderRadius.circular(8),
                                             border: Border.all(
                                                 color:
-                                                    Provider.of<ThemeServices>(
-                                                                    context)
-                                                                .mode ==
-                                                            ThemeMode.dark
-                                                        ? Colors.white
-                                                        : Colors.black),
+                                                    Theme.of(context).themeColors.primaryColor,),
                                           ),
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(

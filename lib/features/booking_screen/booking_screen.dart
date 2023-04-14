@@ -1,15 +1,12 @@
-import 'dart:io';
 
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({Key? key}) : super(key: key);
@@ -48,10 +45,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 },
                 child: Icon(
                   CupertinoIcons.back,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
+                  color: Theme.of(context).themeColors.primaryTextColor,
                 ),
               ),
             ),
@@ -62,14 +56,11 @@ class _BookingScreenState extends State<BookingScreen> {
               ),
               child: Text(
                 'My_Bookings'.tr().toString(),
-                style: TextStyle(
-                  fontSize: 20,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                  fontWeight: FontWeight.w500,
-                ),
+
+    style: Theme.of(context)
+        .textTheme
+        .displayLarge
+        ?.apply(fontWeightDelta: -2),
               ),
             ),
           ),
@@ -242,7 +233,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                       ),
                                 ),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Expanded(
                                 flex: 1,
                                 child: Text(
@@ -437,8 +428,8 @@ class _BookingScreenState extends State<BookingScreen> {
                                 Navigator.pushNamed(
                                     context, 'personalInfoScreen');
                               },
-                              child: const CustomButton(
-                                title: 'Modify',
+                              child: CustomButton(
+                                title: 'Modify'.tr().toString(),
                                 titleColor: kLightColor,
                                 color: kPrimaryColor,
                                 height: 40,

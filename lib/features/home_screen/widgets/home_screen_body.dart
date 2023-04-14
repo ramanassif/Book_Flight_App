@@ -1,4 +1,5 @@
 import 'package:book_flight_app/constants.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:book_flight_app/features/home_screen/widgets/flight_selection_widget.dart';
 import 'package:book_flight_app/features/home_screen/widgets/offer_section.dart';
@@ -112,10 +113,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                             height: 25,
                             child: SvgPicture.asset(
                               'assets/icons/booking.svg',
-                              color: Provider.of<ThemeServices>(context).mode ==
-                                      ThemeMode.dark
-                                  ? kLightColor
-                                  : kDarkColor,
+                              color: Theme.of(context).themeColors.primaryTextColor,
                             ),
                           ),
                           const SizedBox(
@@ -219,10 +217,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                             height: 25,
                             child: SvgPicture.asset(
                               'assets/icons/airplane-in-flight.svg',
-                              color: Provider.of<ThemeServices>(context).mode ==
-                                      ThemeMode.dark
-                                  ? kLightColor
-                                  : kDarkColor,
+                              color: Theme.of(context).themeColors.primaryTextColor,
                             ),
                           ),
                           const SizedBox(
@@ -444,7 +439,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               ),
               child: Text(
                 'Book_Flight'.tr().toString(),
-                style: Theme.of(context).textTheme.displayLarge?.apply(fontWeightDelta: -2),
+                style: Theme.of(context)
+                    .textTheme
+                    .displayLarge
+                    ?.apply(fontWeightDelta: -2),
               ),
             ),
             actions: [
@@ -460,12 +458,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                       bottom: 12,
                       top: 24.0,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.menu,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
+                      color: kPrimaryColor,
                     ),
                   ),
                 );
@@ -486,10 +481,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 2,
-                    color: Provider.of<ThemeServices>(context).mode ==
-                            ThemeMode.dark
-                        ? Colors.grey
-                        : kContainerBorderColor,
+                    color: const Color(0xffA6A6A6),
                   ),
                 ),
                 const OfferSection(),

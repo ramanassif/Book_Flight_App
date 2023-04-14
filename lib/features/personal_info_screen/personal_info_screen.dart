@@ -1,12 +1,11 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:book_flight_app/features/personal_info_screen/widgets/form_person_info.dart';
 import 'package:book_flight_app/features/personal_info_screen/widgets/image_and_name_of_person.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class PersonalInfoScreen extends StatefulWidget {
   const PersonalInfoScreen({Key? key}) : super(key: key);
@@ -40,10 +39,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                   },
                   child: Icon(
                     CupertinoIcons.back,
-                    color: Provider.of<ThemeServices>(context).mode ==
-                            ThemeMode.dark
-                        ? kLightBackgroundColor
-                        : kDarkBackgroundColor,
+                    color: Theme.of(context).themeColors.primaryColor,
                   ),
                 ),
               ),

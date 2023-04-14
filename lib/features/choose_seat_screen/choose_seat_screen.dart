@@ -1,10 +1,9 @@
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ChooseSeatScreen extends StatefulWidget {
   const ChooseSeatScreen({Key? key}) : super(key: key);
@@ -64,10 +63,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                 },
                 child: Icon(
                   CupertinoIcons.back,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightBackgroundColor
-                          : kDarkBackgroundColor,
+                  color: Theme.of(context).themeColors.primaryColor,
                 ),
               ),
             ),
@@ -95,7 +91,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                     left: 16.0,
                     right: 16.0,
                     top: 16.0,
-                    bottom: 24.0,
+                    bottom: 8.0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -180,9 +176,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '1A',
-                                      seatNumberColor: a1Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a1Selected ? kLightColor : kGreyColor,
                                       color: a1Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -198,9 +193,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '1B',
-                                      seatNumberColor: b1Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b1Selected ? kLightColor : kGreyColor,
                                       color: b1Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -214,9 +208,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '1C',
-                                      seatNumberColor: c1Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c1Selected ? kLightColor : kGreyColor,
                                       color: c1Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -232,9 +225,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '1D',
-                                      seatNumberColor: d1Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d1Selected ? kLightColor : kGreyColor,
                                       color: d1Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -259,9 +251,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '2A',
-                                      seatNumberColor: a2Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a2Selected ? kLightColor : kGreyColor,
                                       color: a2Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -277,9 +268,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '2B',
-                                      seatNumberColor: b2Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b2Selected ? kLightColor : kGreyColor,
                                       color: b2Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -293,9 +283,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '2C',
-                                      seatNumberColor: c2Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c2Selected ? kLightColor : kGreyColor,
                                       color: c2Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -311,9 +300,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '2D',
-                                      seatNumberColor: d2Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d2Selected ? kLightColor : kGreyColor,
                                       color: d2Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -338,9 +326,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '3A',
-                                      seatNumberColor: a3Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a3Selected ? kLightColor : kGreyColor,
                                       color: a3Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -356,9 +343,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '3B',
-                                      seatNumberColor: b3Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b3Selected ? kLightColor : kGreyColor,
                                       color: b3Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -372,9 +358,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '3C',
-                                      seatNumberColor: c3Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c3Selected ? kLightColor : kGreyColor,
                                       color: c3Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -390,9 +375,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '3D',
-                                      seatNumberColor: d3Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d3Selected ? kLightColor : kGreyColor,
                                       color: d3Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -417,9 +401,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '4A',
-                                      seatNumberColor: a4Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a4Selected ? kLightColor : kGreyColor,
                                       color: a4Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -435,9 +418,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '4B',
-                                      seatNumberColor: b4Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b4Selected ? kLightColor : kGreyColor,
                                       color: b4Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -451,9 +433,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '4C',
-                                      seatNumberColor: c4Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c4Selected ? kLightColor : kGreyColor,
                                       color: c4Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -469,9 +450,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '4D',
-                                      seatNumberColor: d4Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d4Selected ? kLightColor : kGreyColor,
                                       color: d4Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -496,9 +476,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '5A',
-                                      seatNumberColor: a5Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a5Selected ? kLightColor : kGreyColor,
                                       color: a5Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -514,9 +493,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '5B',
-                                      seatNumberColor: b5Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b5Selected ? kLightColor : kGreyColor,
                                       color: b5Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -530,9 +508,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '5C',
-                                      seatNumberColor: c5Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c5Selected ? kLightColor : kGreyColor,
                                       color: c5Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -548,9 +525,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '5D',
-                                      seatNumberColor: d5Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d5Selected ? kLightColor : kGreyColor,
                                       color: d5Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -575,9 +551,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '6A',
-                                      seatNumberColor: a6Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a6Selected ? kLightColor : kGreyColor,
                                       color: a6Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -593,9 +568,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '6B',
-                                      seatNumberColor: b6Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b6Selected ? kLightColor : kGreyColor,
                                       color: b6Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -609,9 +583,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '6C',
-                                      seatNumberColor: c6Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c6Selected ? kLightColor : kGreyColor,
                                       color: c6Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -627,9 +600,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '6D',
-                                      seatNumberColor: d6Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d6Selected ? kLightColor : kGreyColor,
                                       color: d6Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -654,9 +626,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '7A',
-                                      seatNumberColor: a7Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          a7Selected ? kLightColor : kGreyColor,
                                       color: a7Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -672,9 +643,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '7B',
-                                      seatNumberColor: b7Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          b7Selected ? kLightColor : kGreyColor,
                                       color: b7Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -688,9 +658,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '7C',
-                                      seatNumberColor: c7Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          c7Selected ? kLightColor : kGreyColor,
                                       color: c7Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),
@@ -706,9 +675,8 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                                   },
                                   child: seatContainer(
                                       seatNumber: '7D',
-                                      seatNumberColor: d7Selected
-                                          ? kLightColor
-                                          : kGreyColor,
+                                      seatNumberColor:
+                                          d7Selected ? kLightColor : kGreyColor,
                                       color: d7Selected
                                           ? kPrimaryColor
                                           : kContainerBorderColor),

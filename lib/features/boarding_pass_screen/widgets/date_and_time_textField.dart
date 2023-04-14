@@ -1,7 +1,5 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TimeAndDateTextField extends StatefulWidget {
   final String label;
@@ -30,12 +28,7 @@ class _TimeAndDateTextFieldState extends State<TimeAndDateTextField> {
       enabled: false,
       controller: widget.controller,
       cursorColor: kPrimaryColor,
-      style: TextStyle(
-        fontSize: 14,
-        color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-            ? kLightColor
-            : kDarkColor,
-      ),
+      style: Theme.of(context).textTheme.headlineMedium,
       decoration: InputDecoration(
         prefix: Padding(
           padding: EdgeInsets.only(
@@ -47,20 +40,11 @@ class _TimeAndDateTextFieldState extends State<TimeAndDateTextField> {
             child: Icon(
               widget.iconData,
               size: 20,
-              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                  ? kLightColor
-                  : kDarkColor,
             ),
           ),
         ),
         labelText: widget.label,
-        labelStyle: TextStyle(
-          color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-              ? kLightColor
-              : kGreyColor,
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-        ),
+        labelStyle: Theme.of(context).textTheme.headlineSmall?.apply(fontWeightDelta: 1),
         hintStyle: const TextStyle(
           color: Color(0xffA6A6A6),
           fontSize: 14,

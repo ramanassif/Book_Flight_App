@@ -1,14 +1,11 @@
-import 'dart:io';
-
 import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 class FlightDetailsScreen extends StatefulWidget {
   const FlightDetailsScreen({Key? key}) : super(key: key);
@@ -44,10 +41,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                 },
                 child: Icon(
                   CupertinoIcons.back,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightBackgroundColor
-                          : kDarkBackgroundColor,
+                  color: Theme.of(context).themeColors.primaryColor,
                 ),
               ),
             ),
@@ -351,7 +345,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                       flex: 1,
                       child: CustomButton(
                         title: 'Cancel'.tr().toString(),
-                        color: kLightColor,
+                        color: Colors.transparent,
                         height: 56,
                         titleColor: kPrimaryColor,
                       ),

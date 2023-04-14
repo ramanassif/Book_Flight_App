@@ -13,8 +13,9 @@ final ThemeData lightThemeData = ThemeData(
   scaffoldBackgroundColor: kLightBackgroundColor,
   appBarTheme: const AppBarTheme(backgroundColor: kLightBackgroundColor),
   drawerTheme: const DrawerThemeData(backgroundColor: kLightBackgroundColor),
-  bottomSheetTheme: const BottomSheetThemeData(backgroundColor: kLightBackgroundColor),
-
+  bottomSheetTheme:
+      const BottomSheetThemeData(backgroundColor: kLightBackgroundColor),
+  iconTheme: const IconThemeData(color: kDarkColor),
   textTheme: TextTheme(
     displayLarge: TextStyle(
       fontSize: 20.0,

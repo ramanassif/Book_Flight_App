@@ -1,8 +1,6 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CardDetails extends StatefulWidget {
   const CardDetails({Key? key}) : super(key: key);
@@ -24,20 +22,14 @@ class _CardDetailsState extends State<CardDetails> {
         children: [
           Text(
             'Card_number'.tr().toString(),
-            style: TextStyle(
-              color: Provider.of<ThemeServices>(context).mode ==
-                  ThemeMode.dark
-                  ? kLightColor
-                  : kGreyColor,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context).textTheme.headlineMedium?.apply(fontWeightDelta: 1,),
           ),
-          const TextField(
+          TextField(
             decoration: InputDecoration(
               hintText: '5300 0000 0000 0000',
+              hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6),),
               focusColor: kPrimaryColor,
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: kPrimaryColor),
               ),
             ),
@@ -47,20 +39,14 @@ class _CardDetailsState extends State<CardDetails> {
           ),
           Text(
             'Card_holder_name'.tr().toString(),
-            style: TextStyle(
-              color: Provider.of<ThemeServices>(context).mode ==
-                  ThemeMode.dark
-                  ? kLightColor
-                  : kGreyColor,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context).textTheme.headlineMedium?.apply(fontWeightDelta: 1,),
           ),
-          const TextField(
+          TextField(
             decoration: InputDecoration(
               hintText: 'John Doe',
+              hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6),),
               focusColor: kPrimaryColor,
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: kPrimaryColor),
               ),
             ),
@@ -77,21 +63,14 @@ class _CardDetailsState extends State<CardDetails> {
                   children: [
                     Text(
                       'CVV'.tr().toString(),
-                      style: TextStyle(
-                        color: Provider.of<ThemeServices>(context)
-                            .mode ==
-                            ThemeMode.dark
-                            ? kLightColor
-                            : kGreyColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.headlineMedium?.apply(fontWeightDelta: 1,),
                     ),
-                    const TextField(
+                    TextField(
                       decoration: InputDecoration(
                         hintText: '000',
+                        hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6),),
                         focusColor: kPrimaryColor,
-                        focusedBorder: UnderlineInputBorder(
+                        focusedBorder: const UnderlineInputBorder(
                           borderSide:
                           BorderSide(color: kPrimaryColor),
                         ),
@@ -110,21 +89,14 @@ class _CardDetailsState extends State<CardDetails> {
                   children: [
                     Text(
                       'Expiry_date'.tr().toString(),
-                      style: TextStyle(
-                        color: Provider.of<ThemeServices>(context)
-                            .mode ==
-                            ThemeMode.dark
-                            ? kLightColor
-                            : kGreyColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.headlineMedium?.apply(fontWeightDelta: 1,),
                     ),
-                    const TextField(
+                    TextField(
                       decoration: InputDecoration(
                         hintText: '05/24',
+                        hintStyle: Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xffA6A6A6),),
                         focusColor: kPrimaryColor,
-                        focusedBorder: UnderlineInputBorder(
+                        focusedBorder: const UnderlineInputBorder(
                           borderSide:
                           BorderSide(color: kPrimaryColor),
                         ),
