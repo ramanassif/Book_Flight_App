@@ -434,10 +434,6 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ),
           ),
           appBar: AppBar(
-            backgroundColor:
-                Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                    ? kDarkBackgroundColor
-                    : kLightBackgroundColor,
             centerTitle: true,
             elevation: 0,
             leading: Container(),
@@ -476,35 +472,28 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               }),
             ],
           ),
-          body: Container(
-            color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                ? kDarkBackgroundColor
-                : kLightBackgroundColor,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const WaySelectionWidget(),
-                  const FlightSelectionWidget(),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                      right: 16.0,
-                      bottom: 16.0,
-                    ),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 2,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? Colors.grey
-                          : kContainerBorderColor,
-                    ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                const WaySelectionWidget(),
+                const FlightSelectionWidget(),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    right: 16.0,
+                    bottom: 16.0,
                   ),
-                  const OfferSection(),
-                ],
-              ),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 2,
+                    color: Provider.of<ThemeServices>(context).mode ==
+                            ThemeMode.dark
+                        ? Colors.grey
+                        : kContainerBorderColor,
+                  ),
+                ),
+                const OfferSection(),
+              ],
             ),
           ),
         ),

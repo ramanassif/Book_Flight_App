@@ -58,39 +58,26 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             centerTitle: true,
-            backgroundColor:
-                Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                    ? kDarkBackgroundColor
-                    : kLightBackgroundColor,
             elevation: 0,
           ),
-          body: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                  ? kDarkBackgroundColor
-                  : kLightBackgroundColor,
-            ),
-            child: ListView.builder(
-              itemCount: airlinesImages.length,
-              itemBuilder: (context, index) => Column(
-                children: [
-                  SearchResultItem(
-                    airlineImage: airlinesImages[index],
-                    startTime: startTimes[index],
-                    endTime: endTimes[index],
+          body: ListView.builder(
+            itemCount: airlinesImages.length,
+            itemBuilder: (context, index) => Column(
+              children: [
+                SearchResultItem(
+                  airlineImage: airlinesImages[index],
+                  startTime: startTimes[index],
+                  endTime: endTimes[index],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Container(
+                    height: 1,
+                    width: MediaQuery.of(context).size.width,
+                    color: kContainerBorderColor,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.width,
-                      color: kContainerBorderColor,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

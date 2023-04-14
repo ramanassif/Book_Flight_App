@@ -58,10 +58,6 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                 ),
               ),
               centerTitle: true,
-              backgroundColor:
-                  Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                      ? kDarkBackgroundColor
-                      : kLightBackgroundColor,
               elevation: 0,
             ),
             body: SingleChildScrollView(

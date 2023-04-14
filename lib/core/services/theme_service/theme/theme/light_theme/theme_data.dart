@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/services/theme_service/theme/theme/theme_enums.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,11 @@ import 'light_theme_colors.dart';
 ///
 final ThemeData lightThemeData = ThemeData(
   primaryColor: lightTheme.primaryColor,
+  scaffoldBackgroundColor: kLightBackgroundColor,
+  appBarTheme: const AppBarTheme(backgroundColor: kLightBackgroundColor),
+  drawerTheme: const DrawerThemeData(backgroundColor: kLightBackgroundColor),
+  bottomSheetTheme: const BottomSheetThemeData(backgroundColor: kLightBackgroundColor),
+
   textTheme: TextTheme(
     displayLarge: TextStyle(
       fontSize: 20.0,

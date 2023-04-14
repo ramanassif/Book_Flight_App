@@ -365,7 +365,6 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               GestureDetector(
                 onTap: () {
                   showModalBottomSheet(
-                    //backgroundColor: Theme.of(context).themeColors.scaffoldColor,
                     isScrollControlled: true,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
@@ -395,10 +394,12 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                   children: [
                                     Text(
                                       'Traveller'.tr().toString(),
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.apply(
+                                            fontWeightDelta: 1,
+                                          ),
                                     ),
                                     const SizedBox(
                                       height: 32,
@@ -413,17 +414,21 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                           children: [
                                             Text(
                                               'Adult'.tr().toString(),
-                                              style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.apply(
+                                                    fontWeightDelta: -1,
+                                                  ),
                                             ),
                                             Text(
                                               '${'Age'.tr().toString()} +18',
-                                              style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w300,
-                                              ),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineMedium
+                                                  ?.apply(
+                                                    fontWeightDelta: -1,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -435,13 +440,10 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(8),
                                             border: Border.all(
-                                                color:
-                                                    Provider.of<ThemeServices>(
-                                                                    context)
-                                                                .mode ==
-                                                            ThemeMode.dark
-                                                        ? Colors.white
-                                                        : Colors.black),
+                                              color: Theme.of(context)
+                                                  .themeColors
+                                                  .primaryColor,
+                                            ),
                                           ),
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
@@ -466,10 +468,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                                   numOfAdult > 1
                                                       ? numOfAdult.toString()
                                                       : '1',
-                                                  style: const TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineMedium,
                                                 ),
                                                 GestureDetector(
                                                   onTap: () {
@@ -504,17 +505,21 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                           children: [
                                             Text(
                                               'Children'.tr().toString(),
-                                              style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.apply(
+                                                    fontWeightDelta: -1,
+                                                  ),
                                             ),
                                             Text(
                                               '${'Age'.tr().toString()} 0 - 17',
-                                              style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w300,
-                                              ),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineMedium
+                                                  ?.apply(
+                                                    fontWeightDelta: -1,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -557,10 +562,9 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                                   numOfChildren > 0
                                                       ? numOfChildren.toString()
                                                       : '0',
-                                                  style: const TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineMedium,
                                                 ),
                                                 GestureDetector(
                                                   onTap: () {
@@ -581,19 +585,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                       ],
                                     ),
                                     const SizedBox(
-                                      height: 24,
-                                    ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 2,
-                                      color: Provider.of<ThemeServices>(context)
-                                                  .mode ==
-                                              ThemeMode.dark
-                                          ? Colors.grey
-                                          : kContainerBorderColor,
-                                    ),
-                                    const SizedBox(
-                                      height: 24,
+                                      height: 32,
                                     ),
                                     Material(
                                       color: kPrimaryColor,

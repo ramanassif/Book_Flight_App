@@ -10,9 +10,9 @@ abstract class BaseThemeColors {
   String getHashedString() => primaryColor.toString() ;
 
 
-   Color get white => Color(0xFFFAFCFF);
-   Color get black => Color(0xFF666666);
-   Color get grayColor => Color(0xFF9C9C9A);
+   Color get white => const Color(0xFFFAFCFF);
+   Color get black => const Color(0xFF666666);
+   Color get grayColor => const Color(0xFF9C9C9A);
 
 
    Color get primaryTextColor;
@@ -22,24 +22,6 @@ abstract class BaseThemeColors {
    Color get primaryDarkColor ;
    Color get primaryColor ;
 
-   Color get accentColorDark ;
-   Color get accentColor ;
-   Color get accentBorderColor ;
-
-   Color get primaryGreenDark ;
-   Color get primaryGreen ;
-
-
-   Color get stateSuccess ;
-   Color get stateWaiting ;
-   Color get stateWarning ;
-   Color get stateWarning2 ;
-   Color get stateComplete ;
-
-   Color get buttonStartGradiant  ;
-   Color get buttonEndGradiant  ;
-
-   Color get loadingSpinnerColor ;
    Color get scaffoldColor ;
 
 }

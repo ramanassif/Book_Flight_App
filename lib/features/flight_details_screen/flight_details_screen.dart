@@ -65,331 +65,318 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
               ),
             ),
             centerTitle: true,
-            backgroundColor:
-                Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                    ? kDarkBackgroundColor
-                    : kLightBackgroundColor,
             elevation: 0,
           ),
-          body: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                  ? kDarkBackgroundColor
-                  : kLightBackgroundColor,
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 24.0,
+          body: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 24.0,
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Container(
-                            width: 96,
-                            height: 64,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: kContainerBorderColor,
-                              ),
-                              borderRadius: BorderRadius.circular(4),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Container(
+                          width: 96,
+                          height: 64,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: kContainerBorderColor,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 12.0),
-                              child: Center(
-                                child: Image.asset(
-                                  'assets/images/indigo.png',
-                                ),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 12.0),
+                            child: Center(
+                              child: Image.asset(
+                                'assets/images/indigo.png',
                               ),
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Container(
-                            height: 1,
-                            width: MediaQuery.of(context).size.width,
-                            color: kContainerBorderColor,
-                          ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Container(
+                          height: 1,
+                          width: MediaQuery.of(context).size.width,
+                          color: kContainerBorderColor,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16.0, vertical: 8),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '5.50',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displayLarge
-                                          ?.apply(
-                                            fontSizeDelta: 4,
-                                            color: kDarkColor,
-                                          ),
-                                    ),
-                                    Text(
-                                      'DEL',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall
-                                          ?.apply(
-                                            fontWeightDelta: 1,
-                                            color: kDarkColor,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Row(
-                                  children: [
-                                    const CircleAvatar(
-                                      radius: 5,
-                                      backgroundColor: kLightGreyColor,
-                                    ),
-                                    Stack(
-                                      clipBehavior: Clip.none,
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Container(
-                                          height: 1,
-                                          width: 136,
-                                          color: kLightGreyColor,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '5.50',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayLarge
+                                        ?.apply(
+                                          fontSizeDelta: 4,
+                                          color: kDarkColor,
                                         ),
-                                        CircleAvatar(
-                                          radius: 20,
-                                          backgroundColor: kPrimaryColor,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(4.0),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/airplane-in-flight.svg',
-                                              color: kLightColor,
-                                            ),
+                                  ),
+                                  Text(
+                                    'DEL',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        ?.apply(
+                                          fontWeightDelta: 1,
+                                          color: kDarkColor,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Row(
+                                children: [
+                                  const CircleAvatar(
+                                    radius: 5,
+                                    backgroundColor: kLightGreyColor,
+                                  ),
+                                  Stack(
+                                    clipBehavior: Clip.none,
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Container(
+                                        height: 1,
+                                        width: 136,
+                                        color: kLightGreyColor,
+                                      ),
+                                      CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: kPrimaryColor,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: SvgPicture.asset(
+                                            'assets/icons/airplane-in-flight.svg',
+                                            color: kLightColor,
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    const CircleAvatar(
-                                      radius: 5,
-                                      backgroundColor: kLightGreyColor,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      '7.30',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displayLarge
-                                          ?.apply(
-                                            fontSizeDelta: 4,
-                                            color: kDarkColor,
-                                          ),
-                                    ),
-                                    Text(
-                                      'CCU',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall
-                                          ?.apply(
-                                            fontWeightDelta: 1,
-                                            color: kDarkColor,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Indira Gandhi International Airport',
-                                  textAlign: TextAlign.start,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall
-                                      ?.apply(
-                                        color: const Color(0xff666666),
                                       ),
+                                    ],
+                                  ),
+                                  const CircleAvatar(
+                                    radius: 5,
+                                    backgroundColor: kLightGreyColor,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    '7.30',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayLarge
+                                        ?.apply(
+                                          fontSizeDelta: 4,
+                                          color: kDarkColor,
+                                        ),
+                                  ),
+                                  Text(
+                                    'CCU',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        ?.apply(
+                                          fontWeightDelta: 1,
+                                          color: kDarkColor,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                'Indira Gandhi International Airport',
+                                textAlign: TextAlign.start,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.apply(
+                                      color: const Color(0xff666666),
+                                    ),
+                              ),
+                            ),
+                            const Spacer(),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                'Subhash Chandra Bose International Airport',
+                                textAlign: TextAlign.end,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.apply(
+                                      color: const Color(0xff666666),
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: Container(
+                          height: 1,
+                          width: MediaQuery.of(context).size.width,
+                          color: kContainerBorderColor,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 16.0,
+                          right: 16.0,
+                          top: 16.0,
+                          bottom: 16,
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: InkWell(
+                                onTap: pickedDateFun,
+                                child: CustomTimeAndDateTextField(
+                                  label: 'Date'.tr().toString(),
+                                  iconData: Icons.date_range_outlined,
+                                  textValue: formattedDate,
+                                  controller: dateController,
                                 ),
                               ),
-                              const Spacer(),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Subhash Chandra Bose International Airport',
-                                  textAlign: TextAlign.end,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall
-                                      ?.apply(
-                                        color: const Color(0xff666666),
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: Container(
-                            height: 1,
-                            width: MediaQuery.of(context).size.width,
-                            color: kContainerBorderColor,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 16.0,
-                            right: 16.0,
-                            top: 16.0,
-                            bottom: 16,
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
+                            ),
+                            const SizedBox(
+                              width: 14.0,
+                            ),
+                            Expanded(
                                 flex: 1,
                                 child: InkWell(
-                                  onTap: pickedDateFun,
+                                  onTap: pickedTimeFun,
                                   child: CustomTimeAndDateTextField(
-                                    label: 'Date'.tr().toString(),
-                                    iconData: Icons.date_range_outlined,
-                                    textValue: formattedDate,
-                                    controller: dateController,
+                                    label: 'Time'.tr().toString(),
+                                    iconData: Icons.access_time_outlined,
+                                    textValue: '9.30',
+                                    controller: timeController,
                                   ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 14.0,
-                              ),
-                              Expanded(
-                                  flex: 1,
-                                  child: InkWell(
-                                    onTap: pickedTimeFun,
-                                    child: CustomTimeAndDateTextField(
-                                      label: 'Time'.tr().toString(),
-                                      iconData: Icons.access_time_outlined,
-                                      textValue: '9.30',
-                                      controller: timeController,
-                                    ),
-                                  )),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: Container(
-                            height: 1,
-                            width: MediaQuery.of(context).size.width,
-                            color: kContainerBorderColor,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Price'.tr().toString(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge
-                                    ?.apply(
-                                      fontSizeDelta: 2,
-                                      fontWeightDelta: -4,
-                                  color: kDarkColor,
-                                    ),
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                '\$230',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge
-                                    ?.apply(
-                                  fontSizeDelta: 12,
-                                  fontWeightDelta: -1,
-                                  color: kDarkColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 16.0,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: CustomButton(
-                          title: 'Cancel'.tr().toString(),
-                          color: kLightColor,
-                          height: 56,
-                          titleColor: kPrimaryColor,
+                                )),
+                          ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 14.0,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: Container(
+                          height: 1,
+                          width: MediaQuery.of(context).size.width,
+                          color: kContainerBorderColor,
+                        ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, 'chooseSeatScreen');
-                          },
-                          child: CustomButton(
-                            title: 'Confirm'.tr().toString(),
-                            color: kPrimaryColor,
-                            height: 56,
-                            titleColor: kLightColor,
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Price'.tr().toString(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge
+                                  ?.apply(
+                                    fontSizeDelta: 2,
+                                    fontWeightDelta: -4,
+                                color: kDarkColor,
+                                  ),
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              '\$230',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge
+                                  ?.apply(
+                                fontSizeDelta: 12,
+                                fontWeightDelta: -1,
+                                color: kDarkColor,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 16.0,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: CustomButton(
+                        title: 'Cancel'.tr().toString(),
+                        color: kLightColor,
+                        height: 56,
+                        titleColor: kPrimaryColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 14.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, 'chooseSeatScreen');
+                        },
+                        child: CustomButton(
+                          title: 'Confirm'.tr().toString(),
+                          color: kPrimaryColor,
+                          height: 56,
+                          titleColor: kLightColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
