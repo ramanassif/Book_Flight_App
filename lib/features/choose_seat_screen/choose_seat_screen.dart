@@ -50,14 +50,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
               ),
               child: Text(
                 'Choose_Seat'.tr().toString(),
-                style: TextStyle(
-                  fontSize: 20,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.displayLarge?.apply(fontWeightDelta: -2),
               ),
             ),
             centerTitle: true,
@@ -97,14 +90,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                         ),
                         Text(
                           'Selected'.tr().toString(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Provider.of<ThemeServices>(context).mode ==
-                                    ThemeMode.dark
-                                ? kLightColor
-                                : kGreyColor,
-                          ),
+                          style:Theme.of(context).textTheme.headlineMedium,
                         ),
                         const SizedBox(
                           width: 16.0,
@@ -118,14 +104,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                         ),
                         Text(
                           'Emergency_exit'.tr().toString(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Provider.of<ThemeServices>(context).mode ==
-                                    ThemeMode.dark
-                                ? kLightColor
-                                : kGreyColor,
-                          ),
+                          style:Theme.of(context).textTheme.headlineMedium,
                         ),
                         const SizedBox(
                           width: 16.0,
@@ -139,14 +118,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
                         ),
                         Text(
                           'Reserved'.tr().toString(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Provider.of<ThemeServices>(context).mode ==
-                                    ThemeMode.dark
-                                ? kLightColor
-                                : kGreyColor,
-                          ),
+                          style:Theme.of(context).textTheme.headlineMedium,
                         ),
                       ],
                     ),
@@ -446,11 +418,7 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
       child: Center(
         child: Text(
           seatNumber,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: kGreyColor,
-          ),
+          style:Theme.of(context).textTheme.displaySmall?.apply(fontWeightDelta: 1,color: kGreyColor,),
         ),
       ),
     );

@@ -36,11 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
                         Text(
                           'Book_Flight'.tr().toString(),
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 36,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.displayLarge?.apply(
+                                    fontSizeDelta: 16,
+                                    color: Colors.white,
+                                  ),
                         ),
                       ],
                     ),

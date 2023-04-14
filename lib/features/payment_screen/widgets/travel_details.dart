@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 class TravelDetails extends StatelessWidget {
   const TravelDetails({Key? key}) : super(key: key);
 
@@ -47,13 +46,12 @@ class TravelDetails extends StatelessWidget {
                   const SizedBox(
                     width: 8,
                   ),
-                  const Text(
+                  Text(
                     '15/07/2022',
-                    style: TextStyle(
-                      color: kGreyColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium?.apply(
+                          fontWeightDelta: 1,
+                          color: kGreyColor,
+                        ),
                   ),
                 ],
               ),
@@ -75,24 +73,23 @@ class TravelDetails extends StatelessWidget {
                     flex: 1,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      children: const [
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         Text(
                           '5.50',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: kDarkColor,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.displayLarge?.apply(
+                                    fontSizeDelta: 4,
+                                    color: kDarkColor,
+                                  ),
                         ),
                         Text(
                           'DEL',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: kDarkColor,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.displaySmall?.apply(
+                                    fontWeightDelta: 1,
+                                    color: kDarkColor,
+                                  ),
                         ),
                       ],
                     ),
@@ -119,8 +116,7 @@ class TravelDetails extends StatelessWidget {
                               radius: 20,
                               backgroundColor: kPrimaryColor,
                               child: Padding(
-                                padding:
-                                const EdgeInsets.all(4.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: SvgPicture.asset(
                                   'assets/icons/airplane-in-flight.svg',
                                   color: kLightColor,
@@ -141,22 +137,22 @@ class TravelDetails extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
+                      children: [
                         Text(
                           '7.30',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: kDarkColor,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.displayLarge?.apply(
+                                    fontSizeDelta: 4,
+                                    color: kDarkColor,
+                                  ),
                         ),
                         Text(
                           'CCU',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: kDarkColor,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.displaySmall?.apply(
+                                    fontWeightDelta: 1,
+                                    color: kDarkColor,
+                                  ),
                         ),
                       ],
                     ),
@@ -178,20 +174,18 @@ class TravelDetails extends StatelessWidget {
                 children: [
                   Text(
                     'Total'.tr().toString(),
-                    style: const TextStyle(
-                      color: kDarkColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium?.apply(
+                          color: kDarkColor,
+                        ),
                   ),
                   const Spacer(),
-                  const Text(
+                  Text(
                     '\$230',
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.displayLarge?.apply(
+                          fontSizeDelta: 2,
+                          fontWeightDelta: -1,
+                          color: kPrimaryColor,
+                        ),
                   ),
                 ],
               ),

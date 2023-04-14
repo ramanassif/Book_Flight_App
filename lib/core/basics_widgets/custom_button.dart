@@ -1,5 +1,4 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -30,11 +29,10 @@ class CustomButton extends StatelessWidget {
       child: Center(
         child: Text(
           title,
-          style: TextStyle(
-            color: titleColor,
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
+          style: Theme.of(context).textTheme.displaySmall?.apply(
+                fontWeightDelta: 1,
+                color: titleColor,
+              ),
         ),
       ),
     );

@@ -75,12 +75,10 @@ class _CardOfferItemState extends State<CardOfferItem> {
                     Text(
                       widget.offer,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 0,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: kDarkColor,
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge?.apply(
+                            fontWeightDelta: 1,
+                            color: kDarkColor,
+                          ),
                     ),
                   ],
                 ),
@@ -114,25 +112,24 @@ class _CardOfferItemState extends State<CardOfferItem> {
                       bottom: 16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         widget.description,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: kDarkColor,
-                        ),
+                        style:
+                            Theme.of(context).textTheme.headlineMedium?.apply(
+                                  fontWeightDelta: 1,
+                                  color: kDarkColor,
+                                ),
                       ),
                       const SizedBox(
                         height: 4,
                       ),
-                      const Text(
-                        'Lorem ipsum dolor sit am etet adip',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.grey,
-                        ),
+                      Text(
+                        'Lorem ipsum dolor sit',
+                        style: Theme.of(context).textTheme.headlineSmall?.apply(
+                              color: kGreyColor,
+                            ),
                       ),
                     ],
                   ),

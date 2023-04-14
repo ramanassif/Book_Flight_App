@@ -1,4 +1,4 @@
-import 'package:book_flight_app/features/boarding_pass_screen/screens/boarding_pass_screen.dart';
+import 'package:book_flight_app/features/boarding_pass_screen/boarding_pass_screen.dart';
 import 'package:book_flight_app/features/booking_screen/booking_screen.dart';
 import 'package:book_flight_app/features/choose_seat_screen/choose_seat_screen.dart';
 import 'package:book_flight_app/features/flight_details_screen/flight_details_screen.dart';

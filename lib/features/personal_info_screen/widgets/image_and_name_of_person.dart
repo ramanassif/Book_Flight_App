@@ -1,7 +1,4 @@
-import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ImageAndNameOfPerson extends StatelessWidget {
   const ImageAndNameOfPerson({Key? key}) : super(key: key);
@@ -19,13 +16,7 @@ class ImageAndNameOfPerson extends StatelessWidget {
         ),
         Text(
           'Hello Traveller',
-          style: TextStyle(
-            color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                ? kLightColor
-                : kDarkColor,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
+          style: Theme.of(context).textTheme.displaySmall?.apply(fontWeightDelta: 1,),
         ),
       ],
     );

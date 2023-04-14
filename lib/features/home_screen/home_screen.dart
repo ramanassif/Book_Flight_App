@@ -68,15 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 'Home'.tr().toString(),
-                                style: TextStyle(
-                                  color: selectedTab == 0
-                                      ? Colors.white
-                                      : kSecondaryColor,
-                                  fontSize: 12,
-                                  fontWeight: selectedTab == 0
-                                      ? FontWeight.w600
-                                      : FontWeight.w300,
-                                ),
+                                style:Theme.of(context).textTheme.headlineSmall?.apply(color: selectedTab == 0
+                                    ? Colors.white
+                                    : kSecondaryColor,fontWeightDelta: selectedTab == 0
+                                    ? 3 : 0),
                               ),
                             ],
                           ),
@@ -104,15 +99,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 'Booking'.tr().toString(),
-                                style: TextStyle(
-                                  color: selectedTab == 1
-                                      ? Colors.white
-                                      : kSecondaryColor,
-                                  fontSize: 12,
-                                  fontWeight: selectedTab == 1
-                                      ? FontWeight.w600
-                                      : FontWeight.w300,
-                                ),
+                                style:Theme.of(context).textTheme.headlineSmall?.apply(color: selectedTab == 1
+                                    ? Colors.white
+                                    : kSecondaryColor,fontWeightDelta: selectedTab == 1
+                                    ? 3 : 0),
                               ),
                             ],
                           ),
@@ -140,15 +130,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 'Offer'.tr().toString(),
-                                style: TextStyle(
-                                  color: selectedTab == 2
-                                      ? Colors.white
-                                      : kSecondaryColor,
-                                  fontSize: 12,
-                                  fontWeight: selectedTab == 2
-                                      ? FontWeight.w600
-                                      : FontWeight.w300,
-                                ),
+                                style:Theme.of(context).textTheme.headlineSmall?.apply(color: selectedTab == 2
+                                    ? Colors.white
+                                    : kSecondaryColor,fontWeightDelta: selectedTab == 2
+                                    ? 3 : 0),
                               ),
                             ],
                           ),
@@ -176,15 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 'Inbox'.tr().toString(),
-                                style: TextStyle(
-                                  color: selectedTab == 3
-                                      ? Colors.white
-                                      : kSecondaryColor,
-                                  fontSize: 12,
-                                  fontWeight: selectedTab == 3
-                                      ? FontWeight.w600
-                                      : FontWeight.w300,
-                                ),
+                                style:Theme.of(context).textTheme.headlineSmall?.apply(color: selectedTab == 3
+                                    ? Colors.white
+                                    : kSecondaryColor,fontWeightDelta: selectedTab == 3
+                                    ? 3 : 0),
                               ),
                             ],
                           ),
@@ -212,15 +192,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 'Profile'.tr().toString(),
-                                style: TextStyle(
-                                  color: selectedTab == 4
-                                      ? Colors.white
-                                      : kSecondaryColor,
-                                  fontSize: 12,
-                                  fontWeight: selectedTab == 4
-                                      ? FontWeight.w600
-                                      : FontWeight.w300,
-                                ),
+                                style:Theme.of(context).textTheme.headlineSmall?.apply(color: selectedTab == 4
+                                    ? Colors.white
+                                    : kSecondaryColor,fontWeightDelta: selectedTab == 4
+                                    ? 3 : 0),
                               ),
                             ],
                           ),

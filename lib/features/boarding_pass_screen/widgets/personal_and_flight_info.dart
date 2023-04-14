@@ -17,24 +17,17 @@ class PersonalAndFlightInfo extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               'Mr. John Doe',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+              style:Theme.of(context).textTheme.bodyLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             Text(
               'Passenger',
-              style: TextStyle(
-                color: Color(0xff888888),
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
+              style:Theme.of(context).textTheme.headlineMedium?.apply(color: const Color(0xff888888),),
             ),
           ],
         ),

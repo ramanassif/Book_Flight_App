@@ -1,10 +1,8 @@
 import 'package:book_flight_app/constants.dart';
-import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:book_flight_app/features/boarding_pass_screen/widgets/date_and_time_textField.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 class FlightDetails extends StatefulWidget {
   const FlightDetails({Key? key}) : super(key: key);
@@ -34,20 +32,14 @@ class _FlightDetailsState extends State<FlightDetails> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     '5.50',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style:Theme.of(context).textTheme.displayLarge?.apply(fontSizeDelta: 4,),
                   ),
                   Text(
                     'DEL',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style:Theme.of(context).textTheme.bodyLarge?.apply(fontWeightDelta: -1,),
                   ),
                 ],
               ),
@@ -95,20 +87,14 @@ class _FlightDetailsState extends State<FlightDetails> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   Text(
                     '7.30',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style:Theme.of(context).textTheme.displayLarge?.apply(fontSizeDelta: 4,),
                   ),
                   Text(
                     'CCU',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style:Theme.of(context).textTheme.bodyLarge?.apply(fontWeightDelta: -1,),
                   ),
                 ],
               ),
@@ -119,30 +105,22 @@ class _FlightDetailsState extends State<FlightDetails> {
           height: 16,
         ),
         Row(
-          children: const [
+          children: [
             Expanded(
               flex: 1,
               child: Text(
                 'Indira Gandhi International Airport',
                 textAlign: TextAlign.start,
-                style: TextStyle(
-                  color: Color(0xff666666),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                ),
+                style:Theme.of(context).textTheme.headlineSmall?.apply(color: const Color(0xff666666),),
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
               flex: 1,
               child: Text(
                 'Subhash Chandra Bose International Airport',
                 textAlign: TextAlign.end,
-                style: TextStyle(
-                  color: Color(0xff666666),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                ),
+                style:Theme.of(context).textTheme.headlineSmall?.apply(color: const Color(0xff666666),),
               ),
             ),
           ],
@@ -201,28 +179,14 @@ class _FlightDetailsState extends State<FlightDetails> {
                 children: [
                   Text(
                     'Flight'.tr().toString(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kGreyColor,
-                    ),
+                    style:Theme.of(context).textTheme.headlineSmall?.apply(fontWeightDelta: 1,),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
                   Text(
                     'IN 230',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                    ),
+                    style:Theme.of(context).textTheme.displaySmall,
                   ),
                 ],
               ),
@@ -234,28 +198,14 @@ class _FlightDetailsState extends State<FlightDetails> {
                 children: [
                   Text(
                     'Gate'.tr().toString(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kGreyColor,
-                    ),
+                    style:Theme.of(context).textTheme.headlineSmall?.apply(fontWeightDelta: 1,),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
                   Text(
                     '22',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                    ),
+                    style:Theme.of(context).textTheme.displaySmall,
                   ),
                 ],
               ),
@@ -267,28 +217,14 @@ class _FlightDetailsState extends State<FlightDetails> {
                 children: [
                   Text(
                     'Seat'.tr().toString(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kGreyColor,
-                    ),
+                    style:Theme.of(context).textTheme.headlineSmall?.apply(fontWeightDelta: 1,),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
                   Text(
                     '2B',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                    ),
+                    style:Theme.of(context).textTheme.displaySmall,
                   ),
                 ],
               ),
@@ -300,28 +236,14 @@ class _FlightDetailsState extends State<FlightDetails> {
                 children: [
                   Text(
                     'Class'.tr().toString(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kGreyColor,
-                    ),
+                    style:Theme.of(context).textTheme.headlineSmall?.apply(fontWeightDelta: 1,),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
                   Text(
                     'Economy'.tr().toString(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Provider.of<ThemeServices>(context).mode ==
-                              ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                    ),
+                    style:Theme.of(context).textTheme.displaySmall,
                   ),
                 ],
               ),

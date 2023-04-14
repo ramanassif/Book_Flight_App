@@ -54,14 +54,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
                 child: Text(
                   'Payment'.tr().toString(),
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Provider.of<ThemeServices>(context).mode ==
-                            ThemeMode.dark
-                        ? kLightColor
-                        : kDarkColor,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: Theme.of(context).textTheme.displayLarge?.apply(fontWeightDelta: -2),
                 ),
               ),
               centerTitle: true,

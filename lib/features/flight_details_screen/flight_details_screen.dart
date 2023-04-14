@@ -27,8 +27,6 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
 
   String? _selectedTime;
 
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -60,14 +58,10 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
               ),
               child: Text(
                 'Flight_details'.tr().toString(),
-                style: TextStyle(
-                  fontSize: 20,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .displayLarge
+                    ?.apply(fontWeightDelta: -2),
               ),
             ),
             centerTitle: true,
@@ -94,9 +88,6 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                   ),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: Platform.isWindows
-                        ? MediaQuery.of(context).size.height * 0.7
-                        : MediaQuery.of(context).size.height * 0.55,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16.0),
@@ -143,22 +134,26 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '5.50',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w700,
-                                        color: kDarkColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge
+                                          ?.apply(
+                                            fontSizeDelta: 4,
+                                            color: kDarkColor,
+                                          ),
                                     ),
                                     Text(
                                       'DEL',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: kDarkColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall
+                                          ?.apply(
+                                            fontWeightDelta: 1,
+                                            color: kDarkColor,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -205,22 +200,26 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '7.30',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w700,
-                                        color: kDarkColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge
+                                          ?.apply(
+                                            fontSizeDelta: 4,
+                                            color: kDarkColor,
+                                          ),
                                     ),
                                     Text(
                                       'CCU',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: kDarkColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall
+                                          ?.apply(
+                                            fontWeightDelta: 1,
+                                            color: kDarkColor,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -231,30 +230,32 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
-                            children: const [
+                            children: [
                               Expanded(
                                 flex: 1,
                                 child: Text(
                                   'Indira Gandhi International Airport',
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Color(0xff666666),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.apply(
+                                        color: const Color(0xff666666),
+                                      ),
                                 ),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Expanded(
                                 flex: 1,
                                 child: Text(
                                   'Subhash Chandra Bose International Airport',
                                   textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                    color: Color(0xff666666),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.apply(
+                                        color: const Color(0xff666666),
+                                      ),
                                 ),
                               ),
                             ],
@@ -321,20 +322,26 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
                             children: [
                               Text(
                                 'Price'.tr().toString(),
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w300,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayLarge
+                                    ?.apply(
+                                      fontSizeDelta: 2,
+                                      fontWeightDelta: -4,
                                   color: kDarkColor,
-                                ),
+                                    ),
                               ),
                               const SizedBox(
                                 width: 8,
                               ),
-                              const Text(
+                              Text(
                                 '\$230',
-                                style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.w600,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayLarge
+                                    ?.apply(
+                                  fontSizeDelta: 12,
+                                  fontWeightDelta: -1,
                                   color: kDarkColor,
                                 ),
                               ),
@@ -438,7 +445,7 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
         builder: (context, child) {
           return MediaQuery(
               data:
-              MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+                  MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
               child: child!);
         });
     if (result != null) {

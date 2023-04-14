@@ -62,22 +62,21 @@ class _SearchResultItemState extends State<SearchResultItem> {
                       const SizedBox(
                         width: 8,
                       ),
-                      const Text(
+                      Text(
                         'IN 230',
-                        style: TextStyle(
-                          color: kDarkColor,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style:
+                            Theme.of(context).textTheme.headlineMedium?.apply(
+                                  fontWeightDelta: 1,
+                                  color: kDarkColor,
+                                ),
                       ),
                       const Spacer(),
-                      const Text(
+                      Text(
                         '01 hr 40min',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: kGreyColor,
-                        ),
+                        style: Theme.of(context).textTheme.headlineSmall?.apply(
+                              fontWeightDelta: 2,
+                              color: kGreyColor,
+                            ),
                       ),
                     ],
                   ),
@@ -99,19 +98,18 @@ class _SearchResultItemState extends State<SearchResultItem> {
                           children: [
                             Text(
                               widget.startTime,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: kDarkColor,
-                              ),
+                              style:
+                                  Theme.of(context).textTheme.bodyLarge?.apply(
+                                        color: kDarkColor,
+                                      ),
                             ),
-                            const Text(
+                            Text(
                               'DEL (Delhi)',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                                color: kGreyColor,
-                              ),
+                              style:
+                                  Theme.of(context).textTheme.titleLarge?.apply(
+                                        fontWeightDelta: 1,
+                                        color: kGreyColor,
+                                      ),
                             ),
                           ],
                         ),
@@ -161,19 +159,18 @@ class _SearchResultItemState extends State<SearchResultItem> {
                           children: [
                             Text(
                               widget.endTime,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: kDarkColor,
-                              ),
+                              style:
+                                  Theme.of(context).textTheme.bodyLarge?.apply(
+                                        color: kDarkColor,
+                                      ),
                             ),
-                            const Text(
+                            Text(
                               'CCU (Kolkata)',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                                color: kGreyColor,
-                              ),
+                              style:
+                                  Theme.of(context).textTheme.titleLarge?.apply(
+                                        fontWeightDelta: 1,
+                                        color: kGreyColor,
+                                      ),
                             ),
                           ],
                         ),
@@ -210,31 +207,26 @@ class _SearchResultItemState extends State<SearchResultItem> {
                       ),
                       Text(
                         'Business_Class'.tr().toString(),
-                        style: const TextStyle(
-                          color: kGreyColor,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium?.apply(
+                              color: kGreyColor,
+                            ),
                       ),
                       const Spacer(),
                       Text(
                         'From'.tr().toString(),
-                        style: const TextStyle(
-                          color: kGreyColor,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium?.apply(
+                              color: kGreyColor,
+                              fontWeightDelta: -1,
+                            ),
                       ),
                       const SizedBox(
                         width: 4,
                       ),
-                      const Text(
+                      Text(
                         '\$230',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: kDarkColor,
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge?.apply(
+                              color: kDarkColor,
+                            ),
                       ),
                     ],
                   ),

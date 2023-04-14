@@ -54,12 +54,7 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                 ),
                 child: Text(
                   'Boarding_Pass'.tr().toString(),
-                  style: TextStyle(
-                    color: Provider.of<ThemeServices>(context).mode ==
-                            ThemeMode.dark
-                        ? kLightColor
-                        : kDarkColor,
-                  ),
+                  style: Theme.of(context).textTheme.displayLarge?.apply(fontWeightDelta: -2),
                 ),
               ),
               centerTitle: true,
@@ -123,11 +118,7 @@ class _BoardingPassScreenState extends State<BoardingPassScreen> {
                       },
                       child: Text(
                         'Book_another_flight'.tr().toString(),
-                        style: const TextStyle(
-                          color: kPrimaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style:Theme.of(context).textTheme.displaySmall?.apply(color: kPrimaryColor,),
                       ),
                     ),
                     const SizedBox(

@@ -14,6 +14,7 @@ class OfferSection extends StatefulWidget {
 
 class _OfferSectionState extends State<OfferSection> {
   String? currentLanguage;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,23 +29,23 @@ class _OfferSectionState extends State<OfferSection> {
             children: [
               Text(
                 'Hot_Offer'.tr().toString(),
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color:
-                      Provider.of<ThemeServices>(context).mode == ThemeMode.dark
-                          ? kLightColor
-                          : kDarkColor,
-                ),
+                style: Theme.of(context).textTheme.displayMedium,
+                // style: TextStyle(
+                //   fontSize: 18,
+                //   fontWeight: FontWeight.w600,
+                //   color:
+                //       Provider.of<ThemeServices>(context).mode == ThemeMode.dark
+                //           ? kLightColor
+                //           : kDarkColor,
+                // ),
               ),
               const Spacer(),
               Text(
                 'See_All'.tr().toString(),
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: kPrimaryColor,
-                ),
+                style: Theme.of(context).textTheme.headlineMedium?.apply(
+                      fontWeightDelta: 1,
+                      color: kPrimaryColor,
+                    ),
               ),
             ],
           ),

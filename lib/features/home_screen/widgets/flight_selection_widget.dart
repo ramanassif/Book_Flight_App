@@ -2,6 +2,7 @@ import 'package:book_flight_app/constants.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_button.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_textField.dart';
 import 'package:book_flight_app/core/basics_widgets/custom_time_and_date_textField.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/base_theme_extension.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/cupertino.dart';
@@ -109,38 +110,43 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                             Row(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
-                                              children: const [
+                                              children: [
                                                 Text(
                                                   'Delhi',
-                                                  style: TextStyle(
-                                                    color: kDarkColor,
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .displaySmall
+                                                      ?.apply(
+                                                        fontWeightDelta: 2,
+                                                        color: kDarkColor,
+                                                      ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 8,
                                                 ),
                                                 Text(
                                                   'DEL',
-                                                  style: TextStyle(
-                                                    color: kGreyColor,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineSmall
+                                                      ?.apply(
+                                                        fontWeightDelta: 1,
+                                                        color: kGreyColor,
+                                                      ),
                                                 ),
                                               ],
                                             ),
                                             const SizedBox(
                                               height: 4,
                                             ),
-                                            const Text(
+                                            Text(
                                               'Indira Gandhi International Airport',
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w400,
-                                              ),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleLarge
+                                                  ?.apply(
+                                                    color: Colors.grey,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -161,10 +167,12 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                   child: Center(
                                     child: Text(
                                       'From'.tr().toString(),
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: kGreyColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineSmall
+                                          ?.apply(
+                                            color: kGreyColor,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -212,38 +220,43 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                             Row(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
-                                              children: const [
+                                              children: [
                                                 Text(
                                                   'Kolkata',
-                                                  style: TextStyle(
-                                                    color: kDarkColor,
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .displaySmall
+                                                      ?.apply(
+                                                        fontWeightDelta: 2,
+                                                        color: kDarkColor,
+                                                      ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 8,
                                                 ),
                                                 Text(
                                                   'CCU',
-                                                  style: TextStyle(
-                                                    color: kGreyColor,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineSmall
+                                                      ?.apply(
+                                                        fontWeightDelta: 1,
+                                                        color: kGreyColor,
+                                                      ),
                                                 ),
                                               ],
                                             ),
                                             const SizedBox(
                                               height: 4,
                                             ),
-                                            const Text(
+                                            Text(
                                               'Subhash Chandra International Airport',
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w400,
-                                              ),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleLarge
+                                                  ?.apply(
+                                                    color: Colors.grey,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -264,10 +277,12 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                   child: Center(
                                     child: Text(
                                       'To'.tr().toString(),
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: kGreyColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineSmall
+                                          ?.apply(
+                                            color: kGreyColor,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -350,6 +365,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
               GestureDetector(
                 onTap: () {
                   showModalBottomSheet(
+                    //backgroundColor: Theme.of(context).themeColors.scaffoldColor,
                     isScrollControlled: true,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
@@ -605,7 +621,7 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                       ),
                                     ),
                                     const SizedBox(
-                                      height: 16,
+                                      height: 8,
                                     ),
                                     GestureDetector(
                                       onTap: () {
@@ -613,10 +629,13 @@ class _FlightSelectionWidgetState extends State<FlightSelectionWidget> {
                                       },
                                       child: Text(
                                         'Cancel'.tr().toString(),
-                                        style: const TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                            color: kPrimaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displaySmall
+                                            ?.apply(
+                                              fontWeightDelta: 1,
+                                              color: kPrimaryColor,
+                                            ),
                                       ),
                                     ),
                                   ],

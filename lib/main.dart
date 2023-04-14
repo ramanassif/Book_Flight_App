@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:book_flight_app/core/services/routing/routing_service.dart';
 import 'package:book_flight_app/core/services/theme_service/theme.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/dark_theme/theme_data.dart';
+import 'package:book_flight_app/core/services/theme_service/theme/theme/light_theme/theme_data.dart';
 import 'package:book_flight_app/core/services/theme_service/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
@@ -53,8 +55,8 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          theme: Themes.lightTheme,
-          darkTheme: Themes.darkTheme,
+          theme: lightThemeData,
+          darkTheme: darkThemeData,
           themeMode: model.mode,
           onGenerateRoute: AppRoute.generateRoute,
           initialRoute: 'splashScreen',

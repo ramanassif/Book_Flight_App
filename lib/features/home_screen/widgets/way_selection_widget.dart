@@ -15,6 +15,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
   bool isOneSelected = true;
   bool isTwoSelected = false;
   bool isThreeSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,10 +35,9 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
             BoxShadow(
               offset: const Offset(0, 3),
               blurRadius: 5.0,
-              color: Provider.of<ThemeServices>(context).mode ==
-                  ThemeMode.dark
+              color: Provider.of<ThemeServices>(context).mode == ThemeMode.dark
                   ? kDarkColor
-                  : Colors.grey ,
+                  : Colors.grey,
             ),
           ],
         ),
@@ -60,8 +60,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Center(
                       child: GestureDetector(
                         onTap: () {
@@ -73,13 +72,13 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                         },
                         child: Text(
                           'One_way'.tr().toString(),
-                          style: TextStyle(
-                            color: isOneSelected
-                                ? kLightColor
-                                : Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.apply(
+                                color:
+                                    isOneSelected ? kLightColor : Colors.grey,
+                              ),
                         ),
                       ),
                     ),
@@ -103,8 +102,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Center(
                       child: GestureDetector(
                         onTap: () {
@@ -116,13 +114,13 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                         },
                         child: Text(
                           'Round'.tr().toString(),
-                          style: TextStyle(
-                            color: isTwoSelected
-                                ? kLightColor
-                                : Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.apply(
+                                color:
+                                    isTwoSelected ? kLightColor : Colors.grey,
+                              ),
                         ),
                       ),
                     ),
@@ -146,8 +144,7 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Center(
                       child: GestureDetector(
                         onTap: () {
@@ -159,13 +156,13 @@ class _WaySelectionWidgetState extends State<WaySelectionWidget> {
                         },
                         child: Text(
                           'Multicity'.tr().toString(),
-                          style: TextStyle(
-                            color: isThreeSelected
-                                ? kLightColor
-                                : Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.apply(
+                                color:
+                                    isThreeSelected ? kLightColor : Colors.grey,
+                              ),
                         ),
                       ),
                     ),
