@@ -113,7 +113,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                             height: 25,
                             child: SvgPicture.asset(
                               'assets/icons/booking.svg',
-                              color: Theme.of(context).themeColors.primaryTextColor,
+                              color: Theme.of(context).themeColors.primaryColor,
                             ),
                           ),
                           const SizedBox(
@@ -217,7 +217,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                             height: 25,
                             child: SvgPicture.asset(
                               'assets/icons/airplane-in-flight.svg',
-                              color: Theme.of(context).themeColors.primaryTextColor,
+                              color: Theme.of(context)
+                                  .themeColors
+                                  .primaryTextColor,
                             ),
                           ),
                           const SizedBox(

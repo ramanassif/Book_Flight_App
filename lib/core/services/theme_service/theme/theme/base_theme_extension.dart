@@ -1,3 +1,4 @@
+import 'package:book_flight_app/core/services/theme_service/theme/theme/light_theme/light_theme_colors.dart';
 import 'package:book_flight_app/core/services/theme_service/theme/theme/theme_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,6 @@ extension BaseThemeExtension on ThemeData {
   }
 
   BaseThemeColors get themeColors {
-    return themeColorToBaseThemeMap[this.hashedString]!;
+    return themeColorToBaseThemeMap[hashedString]?? LightThemeColors();
   }
 }
